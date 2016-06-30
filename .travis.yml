@@ -1,13 +1,14 @@
 language: node_js
 node_js:
-  - "0.12"
+  - "5.10.1"
 before_script:
 before_script:
+  - npm install -g cnpm --registry=https://registry.npm.taobao.org
   - sleep 2 # give server time to start
-  - npm install -g gulp
-  - npm install -g bower
-  - npm install -g karma
+  - cnpm install -g gulp
+  - cnpm install -g bower
+  - cnpm install -g karma
 script:
-  - npm install
+  - cnpm install
   - bower install
-  - npm run test-single-run
+  - cnpm run test-single-run
