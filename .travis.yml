@@ -4,10 +4,10 @@ node_js:
 before_script:
 before_script:
   - sleep 2 # give server time to start
-  - cnpm install -g gulp
-  - cnpm install -g bower
-  - cnpm install -g karma
+  - npm install -g gulp
+  - npm install -g bower
+  - npm install -g karma
 script:
-  - cnpm install
+  - npm install
   - bower install
-  - cnpm run test-single-run
+  - npm run test-single-run
