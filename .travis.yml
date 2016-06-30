@@ -1,10 +1,13 @@
+language: node_js
+node_js:
+  - "0.12"
+before_script:
 before_script:
   - sleep 2 # give server time to start
-stages:
-  - test
-test:
-  script:
-    - node -v
-    - ls -al #list dir
-    - npm install
-    - npm run test-single-run
+  - cnpm install -g gulp
+  - cnpm install -g bower
+  - cnpm install -g karma
+script:
+  - cnpm install
+  - bower install
+  - cnpm run test-single-run
