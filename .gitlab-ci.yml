@@ -1,0 +1,12 @@
+before_script:
+  - sleep 2 # give server time to start
+image: index.changhong.io/public/node-karma:1.1
+stages:
+  - test
+test:
+  script:
+    - node -v
+    - ls -al #list dir
+    - cnpm install
+    - bower install --allow-root
+    - cnpm run test-single-run

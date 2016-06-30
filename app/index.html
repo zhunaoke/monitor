@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>基础平台服务监控</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <!--<link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />-->
+    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css"/>
+    <!--<link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />-->
+
+    <!--压缩格式-->
+    <link rel="stylesheet" href="gulp-files/dist/css/content/base.min.css"/>
+    <!--集中到一个页面-->
+    <link rel="stylesheet" href="dist/css/content/monitor.css">
+    <!--<link rel="stylesheet" href="dist/css/product/include.css">-->
+
+    <!--<link rel="stylesheet" href="gulp-files/dist/css/content/monitor.min.css">-->
+    <!--<link rel="stylesheet" href="gulp-files/dist/css/product/include.min.css">-->
+    <link rel="stylesheet" href="dist/css/product/include.css">
+    <link rel="stylesheet" href="gulp-files/dist/css/content/index.min.css">
+    <link rel="stylesheet" href="gulp-files/dist/css/content/history.min.css">
+    <link rel="stylesheet" href="gulp-files/dist/css/content/alarm.min.css">
+    <link rel="stylesheet" href="gulp-files/dist/css/product/help-form.min.css">
+
+    <link rel="stylesheet" href="dist/css/product/modal.css">
+
+
+
+
+
+</head>
+<body ng-controller="indexCtrl" >
+<!--<div ng-include="'/views/base/header_new.html'"></div>-->
+<app-header></app-header>
+
+<section ui-view="" class="index-section"></section>
+
+<app-footer></app-footer>
+<!--<div ng-include="'/views/base/footer.html'"></div>-->
+<app-modal></app-modal>
+
+
+<app-mask></app-mask>
+
+
+
+
+
+
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+
+
+<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="bower_components/moment/min/moment.min.js"></script>
+<script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+<script src="bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+
+<!--非压缩格式-->
+<script src="dist/js/util/echarts.js"></script>
+<script src="dist/js/util/util.js"></script>
+<script src="dist/js/util/validateForm.js"></script>
+<script src="dist/js/util/header.js"></script>
+
+<script src="src/angularRoute.js"></script>
+<script src="src/controller/indexController.js"></script>
+<script src="src/service/indexService.js"></script>
+
+<!--监控-->
+<script src="src/controller/monitorController.js"></script>
+<script src="src/service/monitorService.js"></script>
+<!--告警-->
+<script src="src/controller/alarmController.js"></script>
+<script src="src/service/alarmService.js"></script>
+
+<!--设置-->
+<script src="src/controller/setController.js"></script>
+<script src="src/service/setService.js"></script>
+
+<!--帮助-->
+<script src="src/controller/helpController.js"></script>
+<script src="src/service/helpService.js"></script>
+
+<!--历史-->
+<script src="src/controller/historyController.js"></script>
+<script src="src/service/historyService.js"></script>
+
+
+
+
+
+<!--&lt;!&ndash;压缩格式&ndash;&gt;-->
+<!--<script src="gulp-files/dist/js/util/echarts.min.js"></script>-->
+<!--<script src="gulp-files/dist/js/util/util.min.js"></script>-->
+<!--<script src="gulp-files/dist/js/util/header.min.js"></script>-->
+<!--<script src="gulp-files/dist/js/util/validateForm.min.js"></script>-->
+
+<!--<script src="gulp-files/src/angularRoute.min.js"></script>-->
+<!--<script src="gulp-files/src/controller/indexController.min.js"></script>-->
+<!--<script src="gulp-files/src/service/indexService.min.js"></script>-->
+<!--&lt;!&ndash;监控&ndash;&gt;-->
+<!--<script src="gulp-files/src/controller/monitorController.min.js"></script>-->
+<!--<script src="gulp-files/src/service/monitorService.min.js"></script>-->
+<!--&lt;!&ndash;告警&ndash;&gt;-->
+<!--<script src="gulp-files/src/controller/alarmController.min.js"></script>-->
+<!--<script src="gulp-files/src/service/alarmService.min.js"></script>-->
+
+<!--&lt;!&ndash;设置&ndash;&gt;-->
+<!--<script src="gulp-files/src/controller/setController.min.js"></script>-->
+<!--<script src="gulp-files/src/service/setService.min.js"></script>-->
+
+<!--&lt;!&ndash;帮助&ndash;&gt;-->
+<!--<script src="gulp-files/src/controller/helpController.min.js"></script>-->
+<!--<script src="gulp-files/src/service/helpService.min.js"></script>-->
+
+<!--&lt;!&ndash;历史&ndash;&gt;-->
+<!--<script src="gulp-files/src/controller/historyController.min.js"></script>-->
+<!--<script src="gulp-files/src/service/historyService.min.js"></script>-->
+
+
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,264 @@
+/*模态框基本设置*/
+.modal-header{
+    background-color:#f8f8f9;
+}
+.modal-body{
+    height: auto;
+    padding: 30px 0 20px 0;
+}
+.modal-footer{
+    margin:0;
+    padding:30px 0 20px 0;
+    height:100px;
+    background-color:#f8f8f9;
+}
+.modal-footer .determine.modal-determine{
+    width:700px;
+    height:40px;
+    margin:0 auto;
+    padding:0;
+}
+.modal-footer .determine.modal-determine button{
+    height: 40px;
+}
+/*创建监控模板模态框*/
+
+.modal-dialog,.modal-dialog .modal-content{
+    width:800px;
+}
+#templateModal form.template-form.modal-form{
+    width:610px;
+    /*margin:0 70px 0 100px;*/
+}
+.basic-form.form-horizontal .form-group{
+    margin-left:0;
+    margin-right:0;
+}
+.basic-form.form-horizontal .form-group .col-md-9{
+    height:30px;
+    padding:0;
+    line-height: 30px;
+}
+.basic-form.form-horizontal .col-md-9.get-method label{
+    margin-right:20px;
+}
+/*告警模态框*/
+#alarmModal form.template-form.alarm-form-modal{
+    width:720px;
+    margin:0 0 0 80px;
+}
+#alarmModal input{
+    width: 240px;
+}
+
+#alarmModal .checkbox-inline input[type=checkbox]{
+    position: relative;
+    margin:-3px 10px 0 0;
+    width: 13px;
+}
+.accept-times .form-control{
+    width:80px;
+}
+#alarmModal select:first-child{
+    margin-left: 15px;
+}
+#alarmModal select{
+    margin: 0;
+}
+.add-accept,.del-accept{
+    width: 230px;
+    height: 200px;
+    /*display: inline-block;*/
+    border: 1px solid #b0c9dd;
+    border-radius:4px;
+    margin-left: 15px;
+}
+.del-accept{
+    margin:-200px 0 0 265px;
+}
+.add-accept ul,.del-accept ul{
+    width:210px;
+    height: 160px;
+    margin: 0 auto;
+}
+.add-accept ul li,.add-accept ul li{
+    width:200px;
+    display: inline-block;
+}
+h4.accept-title{
+    margin: 0;
+    padding: 0 12px;
+    display: inline-block;
+    width: 229px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #b0c9dd;
+    border-radius: 4px 4px 0 0;
+    margin-bottom: 10px;
+
+}
+.add-accept ul li span,.add-accept ul li span{
+    width: 15px;
+}
+
+/*联系人模态框*/
+.people .modal-dialog .modal-content{
+    width:460px;
+    margin:0 auto;
+}
+form.people-form{
+    margin:0;
+    width:auto;
+    overflow: hidden;
+}
+form.people-form .modal-body{
+    padding:30px 30px;
+}
+form.people-form button.code-btn,
+form.people-form button.code-btn:link,
+form.people-form button.code-btn:active,
+form.people-form button.code-btn[disabled]{
+    background-color: #11cd6e;
+    color:#fff;
+    border:1px solid #11cd6e;
+    outline: none;
+    height:30px;
+    vertical-align: 0;
+    font-size: 12px;
+    padding:6px 16px;
+}
+form.people-form .modal-footer{
+    text-align: center;
+}
+
+form.people-form .people-footer button,
+form.people-form .people-footer button:active,
+form.people-form .people-footer button.link,
+form.people-form .people-footer button:hover{
+    text-align: center;
+    padding:6px 30px;
+    border:0;
+    font-size: 14px;
+    outline: none;
+}
+form.people-form .people-footer button.confirm{
+    background-color:#ffc263;
+    color:#fff;
+    margin-right:15px;
+}
+form.people-form .people-footer button.confirm:hover{
+    background-color:#fdbd58;
+}
+form.people-form .people-footer button.cancel{
+    background-color:transparent;
+    color:#56abe4;
+}
+/*#people-add-modal .modal-dialog,#acceptModal .modal-dialog .modal-content{*/
+    /*width: 600px;*/
+/*}*/
+/*#people-add-modal form{*/
+    /*width:600px;*/
+    /*padding:0 0 0 75px;*/
+/*}*/
+/*#people-add-modal input{*/
+    /*width: 240px;*/
+/*}*/
+/*#people-add-modal .code input{*/
+    /*width: 140px;*/
+/*}*/
+/*#people-add-modal .code .btn{*/
+    /*color: #ffffff;*/
+    /*background-color:#61ba23;*/
+    /*border-color:#61ba23;*/
+/*}*/
+/*#people-add-modal .modal-footer .determine.modal-determine{*/
+    /*width:580px;*/
+/*}*/
+/*#people-add-modal .modal-footer .determine.modal-determine button{*/
+    /*width: 180px;*/
+/*}*/
+
+
+
+/*sweetalert样式*/
+.sweet-alert fieldset {
+    margin:0;
+    padding: 0;
+}
+.sweet-alert button{
+    font: 16px "microsoft yahei";
+    padding: 8px 35px;
+}
+
+
+/*详情弹框--监控模板*/
+table.tip-table{
+    width:auto;
+    overflow: hidden;
+    border:0;
+    padding:0;
+    margin:0;
+}
+table.tip-table tr td{
+    height:17px;
+    font-size: 9px;
+    border-bottom:1px solid #c8c8c8;
+    padding:0;
+    margin:0;
+}
+table.tip-table tr td:first-child{
+    width:60px;
+    overflow: hidden;
+    text-align: right;
+
+}
+table.tip-table tr td:last-child{
+    width:auto;
+    max-width: 200px;
+    overflow: hidden;
+    text-align: left;
+}
+
+
+/****************mask 等待*****************/
+#mask {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    filter: alpha(opacity=60);
+    background-color: #777;
+    z-index: 9999999;
+    left: 0px;
+    display: none;
+    opacity: 0.5;
+    -moz-opacity: 0.5;
+}
+#mask img {position: absolute;top: 50%;left: 45%;}
+
+/****下拉菜单显示****/
+.select-box{position: relative;}
+.select-replace-link{
+    color: #000;
+    background: #fff;
+    border: 1px solid #ccc;
+    display: inline-block;
+    width: 280px;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 4px;
+    pointer-events: none;
+    padding-left:10px;
+}
+/*.select-replace-link span.glyphicon-chevron-down{*/
+.select-replace-link span.trangle-down{
+    width:0;
+    line-height:30px;
+    border-style: solid;
+    border-width:6px 3px 0 3px;
+    border-color: #000 transparent transparent transparent;
+    margin: 12px 5px 12px 12px;
+}

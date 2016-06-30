@@ -1,0 +1,113 @@
+
+<div class="container http">
+    <h4>http告警事件历史</h4>
+    <div class="row" style="margin-top:75px">
+        <div class="col-md-12">
+            <div id="myAlert" class="alert alert-warning">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>提示：</strong>云账号每月的短信配额为<strong> 1000 </strong>条，您本月已使用<strong> 0 </strong>条
+            </div>
+        </div>
+        <div class="col-md-12 data">
+            <div class="container">
+                <div class="row">
+                    <div class="datepicker">
+                        <div class="form-group ">
+                            <div class='col-sm-3 input-group date date-start'>
+                                <input type='text' class="form-control"  id='datetimepicker6' />
+                            </div>
+                            <span class="to">至</span>
+                            <div class='col-sm-3 input-group date date-end' >
+                                <input type='text' class="form-control" id='datetimepicker7' />
+
+                            </div>
+                        </div>
+                        <div class="check">
+                            <a href="" class="3days">最近3天</a>
+                            <a href="" class="7days">最近7天</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<table class="table table-striped">-->
+    <div class="row">
+        <div class="col-md-12">
+            <table ng-if="productsList.length!=0"  class="table table-hover table-responsive">
+                <thead>
+                <tr>
+                    <th>异常时间</th>
+                    <th>监控对象</th>
+                    <th>名称</th>
+                    <th>任务类型</th>
+                    <th>当前状态</th>
+                    <th>事件信息</th>
+                    <th>持续时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>2016-3-7 15:47:11</td>
+                    <td class="object">sso.changhong.com</td>
+                    <td>长虹</td>
+                    <td class="task">http任务</td>
+                    <td ><span class="mstatus">未恢复</span></td>
+                    <td>[ <span class="abnormal">异常</span> ]连接失败</td>
+                    <td>10min</td>
+                    <td>
+                        <a class="detail" name="detail"><span class="detail"></span></a>
+                        <a class="data" name="data" ><span class="data"></span></a>
+
+                    </td>
+                </tr>
+                <tr ng-repeat="alarm in alarmItems">
+                    <td>{{alarm.time}}</td>
+                    <td class="object">{{alarm.object}}</td>
+                    <td>{{alarm.name}}</td>
+                    <td class="task">{{alarm.task}}</td>
+                    <td ><span class="mstatus">{{alarm.mstatus}}</span></td>
+                    <td>[ <span class="abnormal">{{alarm.response}}</span> ]{{alarm.contact}}</td>
+                    <td>{{alarm.frequency}}</td>
+                    <td>
+                        <a class="detail" name="detail"><span class="detail"></span></a>
+                        <a class="data" name="data" ><span class="data"></span></a>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<div class="row page">
+    <div class="col-md-12">
+        <div class="pagination">
+            <ul class="page">
+                <li class="pre"><a href="#">上一页</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li class="next"><a href="#">下一页</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>

@@ -1,0 +1,161 @@
+<div class="row set-row">
+    <div class="col-md-4 pull-left">
+        <button ui-sref="monitor.item" type="button" class="btn-add color-set">创建监控项</button>
+        <button ui-sref="set.template-new" type="button" class="btn-add color-set">创建监控模板</button>
+    </div>
+    <!--<div class=" pull-right" style="margin-right:0;">-->
+        <!--<button  type="button" class="btn-add color-set">创建监控组</button>-->
+    <!--</div>-->
+</div>
+<fieldset>
+    <legend>创建HTTP监控模板</legend>
+    <form role="form" class="form-horizontal template-form"  ng-submit="template.addTemplate(templateAddInfo)" id="template-form">
+        <div class="form-group" >
+            <label for="tType" class="col-sm-2">模板类型：</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="tType" value="HTTP" disabled ng-model="templateAddInfo.templateType">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tName" class="col-sm-2"><span class="red">*</span>模板名称：</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="请输入名称" id="tName" ng-model="templateAddInfo.name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tType" class="col-sm-2">监控频率：</label>
+            <div class="col-sm-10">
+                <select class="form-control" name="frequencySelect" id="template-add-select-frequency" >
+                    <option value="1">1min</option>
+                    <option value="2">2min</option>
+                    <option value="3">3min</option>
+                    <option value="5">5min</option>
+                    <option value="10">10min</option>
+                    <option value="15">15min</option>
+                    <option value="30">30min</option>
+                </select>
+                <span class="ask select" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                        data-content="监控端发起检测的时间间隔，比如5分钟检测一次是否可用" data-trigger="hover">
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">HTTP请求方法：</label>
+            <div class="col-sm-10 get-method">
+                <label class="checkbox-inline first-label">
+                    <input type="radio" name="getOption" id="option1" value="POST" checked >POST
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="getOption" id="option2" value="GET" >GET
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="getOption" id="option3" value="PUT" >PUT
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="getOption" id="option4" value="HEAD" >HEAD
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="getOption" id="option5" value="DELETE" >DELETE
+                </label>
+            </div>
+
+        </div>
+        <div class="form-group" style="height: 99px">
+            <label class="col-sm-2">请求头部：</label>
+            <div class="col-sm-10">
+                <textarea class="form-control suggest" rows="4" placeholder="不能超过1024字符" ng-model="templateAddInfo.requestHeader"></textarea>
+                <!--<span class="ask textarea"></span>-->
+                   <span class="ask textarea" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                         data-content="请输入请求的头部内容，例如：
+Accept:text/html,application/xhtml+xml,
+application/xml;
+q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding:gzip, deflate, sdch
+Accept-Language:zh-CN,zh;q=0.8
+Cache-Control:max-age=0
+Connection:keep-alive
+Cookie:chjk=MjAxNTgxMTE=
+Host:localhost:8000" data-trigger="hover">
+                </span>
+            </div>
+        </div>
+        <div class="form-group" style="height: 99px">
+            <label class="col-sm-2">响应头部：</label>
+            <div class="col-sm-10">
+                <textarea class="form-control suggest" rows="4" placeholder="不能超过1024字符" ng-model="templateAddInfo.responseHeader"></textarea>
+                 <span class="ask textarea" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                       data-content="你可以通过指定匹配内容来检查响应内容是否正确" data-trigger="hover">
+                </span>
+            </div>
+        </div>
+        <div class="form-group" style="height: 99px">
+            <label class="col-sm-2">响应主体内容：</label>
+            <div class="col-sm-10">
+                <textarea class="form-control suggest" rows="4" placeholder="不能超过1024字符" ng-model="templateAddInfo.responseContent"></textarea>
+                <!--<span class="ask textarea"></span>-->
+                 <span class="ask textarea" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                       data-content="你可以通过指定匹配内容来检查响应内容是否正确" data-trigger="hover">
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">匹配方式：</label>
+            <div class="col-sm-10 get-method">
+                <label class="checkbox-inline first-label">
+                    <input type="radio" name="matchOption" id="option11" value="0" checked > 匹配响应内容
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="matchOption" id="option21" value="1" > 不匹配响应内容
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="matchOption" id="option31" value="2"> 不关心
+                <span class="ask select" title="提示信息" data-container="body" data-toggle="inf" data-placement="right" data-html="true"
+                      data-content="匹配：必须和用户输入的响应内容完全一样<br>不匹配：和用户输入的响应内容不能完全一样 <br>不关心：忽略用户输入的响应内容" data-trigger="hover">
+                </span>
+                </label>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 ">Cookie内容：</label>
+            <div class="col-sm-10">
+                <textarea class="form-control suggest" rows="4" placeholder="不能超过1024字符" ng-model="templateAddInfo.cookie"></textarea>
+                 <span class="ask textarea" title="提示信息" data-container="body" data-toggle="inf" data-placement="right" data-html="true"
+                       data-content="可以指定Cookies字符串，比如：<br>token=d906b69209d9de92789;<br>pvid=954970634;flv=10.0" data-trigger="hover" >
+                </span>
+            </div>
+        </div>
+    </form>
+</fieldset>
+<div id="msg_add_template" style="display: none;">
+    <div class="alert alert-warning msg-alert">
+        您的网络连接有问题。
+    </div>
+</div>
+<div class="determine">
+    <button type="submit" class="btn btn-default active" ng-click="template.addTemplate(templateAddInfo)" ng-cloak>确认</button>
+    <button type="button" class="btn btn-default" id="emptyForm">放弃</button>
+</div>
+<script type="text/javascript" ></script>
+<script>
+    $(function() {
+        $('.determine').find('button').on("click", function () {
+            $('.determine').find('button').removeClass('active');
+            $(this).addClass('active');
+        });
+    });
+
+</script>
+<script>
+    $(function (){
+        $("[data-toggle='inf']").hover().popover();
+    });
+</script>
+<script>
+    $(function () {
+        $('#emptyForm').click(function(){
+            $('#template-form')[0].reset();
+        });
+
+    });
+</script>

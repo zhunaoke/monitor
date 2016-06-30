@@ -1,0 +1,103 @@
+.con.index-con{
+    width: 98%;
+    /*top: 35px;*/
+    background-color: #EDEDEF;
+    border-color: transparent;
+}
+.con.index-con .monitor-content{
+    padding: 0 0 0 10px;
+}
+.chart-box{
+    width: 470px;
+    height: 330px;
+    border: 1px solid #9cedbc;
+    display: inline-block;
+    float: left;
+    border-collapse: collapse;
+    margin-right:30px;
+}
+.verview{
+    width:1300px;
+    height: 500px;
+}
+/*ͼ�������ʽ*/
+.con h3.color-chart{
+    color: #000;
+    font-size:16px ;
+    background-color: #e6fcef;
+    border: 1px solid #9aedbb;
+    width: 470px;
+    border-collapse: collapse;
+    margin: -1px 0 0 -1px;
+}
+.con h3.color-chart.chart-right{
+    width: 300px;
+}
+/*ͼ����ʽ*/
+#items,#response,#resource{
+    float: left;
+    border-collapse: collapse;
+}
+.chart-right{
+    width:300px;
+    margin: 0;
+    background-color: #fff;
+}
+/*��������ʽ*/
+#resource h4.resource-title{
+    font: 14px "microsoft yahei";
+    margin: 5px 0 0 15px;
+}
+#resource .form-group{
+    width: 300px;
+    margin: 0 auto;
+    padding: 10px 15px;
+}
+#resource .form-group{
+    margin: 0 0 10px 0;
+    height: 30px;
+    line-height: 30px;
+}
+h4.progress-title{
+    margin: 0 0 2px 0;
+    font: 12px "microsoft yahei";
+}
+.progress{
+    border: 2px solid #d1f3ea;
+    height: 20px;
+    margin: 5px 0;
+    line-height: 30px;
+}
+.progress-bar{
+    -webkit-box-shadow:none;
+    box-shadow: none;
+    background-color: #a0d36e;
+}
+#resource .col-sm-2{
+    margin: 0 5px;
+    text-align: center;
+}
+#resource .col-sm-2 span{
+    margin: 0;
+}
+#resource .col-sm-4{
+    width: 95px;
+    height: 30px;
+    background-color: #3ea9f5;
+    padding:0 8px;
+    vertical-align: middle;
+    border-radius: 4px;
+    text-align:left;
+}
+#resource .col-sm-4 span{
+    margin-right: 5px;
+    line-height: 30px;
+    vertical-align: middle;
+    top: 0;
+}
+#resource .col-sm-4 a{
+    color: #fff;
+}
+#resource .col-sm-4:hover{
+   background-color: #2bc76c;
+}

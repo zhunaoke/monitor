@@ -1,0 +1,275 @@
+<style>
+
+</style>
+
+
+<div class="row set-row">
+    <div class="col-md-4 pull-left">
+        <button ui-sref="monitor.item" type="button" class="btn-add color-set">创建监控项</button>
+        <button ui-sref="set.template-new" type="button" class="btn-add color-set">创建监控模板</button>
+    </div>
+    <!--<div class=" pull-right" style="margin-right:0;">-->
+        <!--<button ui-sref="set.monitor" type="button" class="btn-add color-set">创建监控组</button>-->
+    <!--</div>-->
+</div>
+<div class="sub-con">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="myAlert" class="alert alert-warning">
+                <a class="close" data-dismiss="alert">&times;</a>
+                共有<strong> 3 </strong>个监控项，有<strong> 1 </strong>个异常监控事件，请及时查阅处理
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" ng-show="template.templateList.length!=0">
+            <table class="table table-hover table-responsive">
+                <thead>
+                <tr>
+                    <th>模板名称</th>
+                    <th>模板类型</th>
+                    <th>监控频率</th>
+                    <th>模板详情</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="templateInfo in template.templateList">
+                    <td>{{templateInfo.name}}</td>
+                    <td>{{templateInfo.templateType}}</td>
+                    <td>{{templateInfo.monitorFrequency}}分钟</td>
+                    <td>
+                        <a onmouseover="showP();" ng-if="templateInfo.matchRule==0" data-title="详情" data-trigger="hover" data-html="true"
+                           data-container="body" data-toggle="popover" data-placement="left"
+                           data-content='<table class="tip-table"><tr><td>监控频率：</td><td>{{templateInfo.monitorFrequency}}分钟</td></tr><tr><td>请求方法：</td><td>{{templateInfo.httpMethod}}</td></tr><tr><td>请求头：</td><td>{{templateInfo.requestHeader}}</td></tr><tr><td>响应头：</td><td>{{templateInfo.responseHeader}}</td></tr><tr><td>响应内容：</td><td>{{templateInfo.responseContent}}</td></tr><tr><td>匹配方式：</td><td>匹配响应内容</td></tr><tr><td>COOKIE：</td><td>{{templateInfo.cookie | limitTo:22}}</td></tr></table>'>
+                            详情
+                        </a>
+                        <a onmouseover="showP();" ng-if="templateInfo.matchRule==1" data-title="详情" data-trigger="hover" data-html="true"
+                           data-container="body" data-toggle="popover" data-placement="left"
+                           data-content='<table class="tip-table"><tr><td>监控频率：</td><td>{{templateInfo.monitorFrequency}}分钟</td></tr><tr><td>请求方法：</td><td>{{templateInfo.httpMethod}}</td></tr><tr><td>请求头：</td><td>{{templateInfo.requestHeader}}</td></tr><tr><td>响应头：</td><td>{{templateInfo.responseHeader}}</td></tr><tr><td>响应内容：</td><td>{{templateInfo.responseContent}}</td></tr><tr><td>匹配方式：</td><td>不匹配响应内容</td></tr><tr><td>COOKIE：</td><td>{{templateInfo.cookie | limitTo:22}}</td></tr></table>'>
+                            详情
+                        </a>
+                        <a onmouseover="showP();" ng-if="templateInfo.matchRule==2" data-title="详情" data-trigger="hover" data-html="true"
+                           data-container="body" data-toggle="popover" data-placement="left"
+                           data-content='<table class="tip-table"><tr><td>监控频率：</td><td>{{templateInfo.monitorFrequency}}分钟</td></tr><tr><td>请求方法：</td><td>{{templateInfo.httpMethod}}</td></tr><tr><td>请求头：</td><td>{{templateInfo.requestHeader}}</td></tr><tr><td>响应头：</td><td>{{templateInfo.responseHeader}}</td></tr><tr><td>响应内容：</td><td>{{templateInfo.responseContent}}</td></tr><tr><td>匹配方式：</td><td>不关心</td></tr><tr><td>COOKIE：</td><td>{{templateInfo.cookie | limitTo:22}}</td></tr></table>'>
+                            详情
+                        </a>
+                    </td>
+                    <td>{{templateInfo.createTime}}</td>
+                    <td class="operation">
+                        <a class="icon-link" name="editor" ng-click="template.showEditTemplate(templateInfo)"
+                           data-toggle="modal" title="编辑"><span class="icon icon-edit"></span></a>
+                        <a class="icon-link" name="delete" ng-click="template.delTemplate(templateInfo.id)"
+                           data-toggle="modal" title="删除"><span class="icon icon-del"></span></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12" ng-show="template.templateList.length==0">
+            <div class="alert alert-success">
+                暂无数据
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center">
+            <uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage"
+                            class="pagination-md" totalPages="totalPages"
+                            ng-change="pageChangedTemplate()" max-size="maxSize" rotate="false"
+                            items-per-page="10"
+                            previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+            </uib-pagination>
+        </div>
+    </div>
+</div>
+
+
+<!-- 编辑监控模板模态框 -->
+<div class="modal fade " id="template-edit-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--<form role="form" class="form-horizontal template-form modal-form" ng-submit="template.updateTemplate(editTemplateInfo);">-->
+            <form role="form" class="template-form people-form" ng-submit="template.updateTemplate(editTemplateInfo);">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">编辑监控项模板</h4>
+                    <!--h4 id与该模态框id有关-->
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" id="template-form">
+                        <label for="tType" class="col-sm-2"><span class="red">*</span>模板类型：</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="HTTP" id="tType" disabled
+                                   ng-model="editTemplateInfo.templateType">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tName" class="col-sm-2"><span class="red">*</span>模板名称：</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="请输入名称" id="tName"
+                                   ng-model="editTemplateInfo.name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tType" class="col-sm-2"><span class="red">*</span>监控频率：</label>
+
+                        <div class="col-sm-10">
+                            <select class="form-control" name="mSelect" id="edit-template-select"
+                                    ng-model="editTemplateInfo.monitorFrequency">
+                                <option value="-1" ng-selected="editTemplateInfo.monitorFrequency=='-1'">请选择</option>
+                                <option value="1" ng-selected="editTemplateInfo.monitorFrequency==1">1min</option>
+                                <option value="2" ng-selected="editTemplateInfo.monitorFrequency==2">2min</option>
+                                <option value="3" ng-selected="editTemplateInfo.monitorFrequency==3">3min</option>
+                                <option value="5" ng-selected="editTemplateInfo.monitorFrequency==5">5min</option>
+                                <option value="10" ng-selected="editTemplateInfo.monitorFrequency==10">10min</option>
+                                <option value="15" ng-selected="editTemplateInfo.monitorFrequency==15">15min</option>
+                                <option value="30" ng-selected="editTemplateInfo.monitorFrequency==30">30min</option>
+                            </select>
+                            <span class="ask select" title="提示信息" data-container="body" data-toggle="inf"
+                                  data-placement="right" data-content="监控端发起检测的时间间隔，比如5分钟检测一次是否可用"
+                                  data-trigger="hover"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2"><span class="red">*</span>HTTP请求方法：</label>
+
+                        <div class="col-sm-10 get-method">
+                            <label class="checkbox-inline first-label">
+                                <input type="radio" name="httpMethod" id="option1" value="GET"
+                                       ng-checked="editTemplateInfo.httpMethod=='GET'"> GET
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="radio" name="httpMethod" id="option2" value="POST"
+                                       ng-checked="editTemplateInfo.httpMethod=='POST'"> POST
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="radio" name="httpMethod" id="option3" value="HEAD"
+                                       ng-checked="editTemplateInfo.httpMethod=='HEAD'"> HEAD
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="radio" name="httpMethod" id="option4" value="PUT"
+                                       ng-checked="editTemplateInfo.httpMethod=='PUT'"> PUT
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="radio" name="httpMethod" id="option5" value="DELETE"
+                                       ng-checked="editTemplateInfo.httpMethod=='DELETE'"> DELETE
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group" style="height: 99px">
+                        <label class="col-sm-2">请求头部：</label>
+
+                        <div class="col-sm-10">
+                            <textarea class="form-control suggest" rows="4" placeholder="不能超过1024字符"
+                                      ng-model="editTemplateInfo.requestHeader"></textarea>
+                            <!--<span class="ask textarea"></span>-->
+                   <span class="ask textarea" title="提示信息" data-container="body" data-toggle="inf"
+                         data-placement="right"
+                         data-content="请输入请求的头部内容，例如：
+Accept:text/html,application/xhtml+xml,
+application/xml;
+q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding:gzip, deflate, sdch
+Accept-Language:zh-CN,zh;q=0.8
+Cache-Control:max-age=0
+Connection:keep-alive
+Cookie:chjk=MjAxNTgxMTE=
+Host:localhost:8000" data-trigger="hover">
+                </span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="height: 99px">
+                        <label class="col-sm-2">响应头部：</label>
+
+                        <div class="col-sm-10">
+                            <textarea class="form-control suggest" rows="4" placeholder="不能超过1024字符"
+                                      ng-model="editTemplateInfo.responseHeader"></textarea>
+                            <!--<span class="ask textarea"></span>-->
+                 <span class="ask textarea" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                       data-content="你可以通过指定匹配内容来检查响应内容是否正确" data-trigger="hover">
+                </span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="height: 99px">
+                        <label class="col-sm-2">响应主体内容：</label>
+
+                        <div class="col-sm-10">
+                            <textarea class="form-control suggest" rows="4" placeholder="不能超过1024字符"
+                                      ng-model="editTemplateInfo.responseContent"></textarea>
+                            <!--<span class="ask textarea"></span>-->
+                 <span class="ask textarea" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                       data-content="你可以通过指定匹配内容来检查响应内容是否正确" data-trigger="hover">
+                </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2">匹配方式：</label>
+
+                        <div class="col-sm-10 get-method">
+                            <label class="checkbox-inline first-label">
+                                <input type="radio" name="matchOption" id="option11" value="0"
+                                       ng-checked="editTemplateInfo.matchRule==0"> 匹配响应内容
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="radio" name="matchOption" id="option21" value="1"
+                                       ng-checked="editTemplateInfo.matchRule==1"> 不匹配响应内容
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="radio" name="matchOption" id="option31" value="2"
+                                       ng-checked="editTemplateInfo.matchRule==2"> 不关心
+                                <span class="ask select" title="提示信息" data-container="body" data-toggle="inf"
+                                      data-placement="right" data-html="true"
+                                      data-content="匹配：必须和用户输入的响应内容完全一样<br>不匹配：和用户输入的响应内容不能完全一样 <br>不关心：忽略用户输入的响应内容"
+                                      data-trigger="hover"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group" style="height:100px">
+                        <label class="col-sm-2 ">Cookie内容：</label>
+
+                        <div class="col-sm-10">
+                            <textarea class="form-control suggest" rows="4" placeholder="不能超过1024字符"
+                                      ng-model="editTemplateInfo.cookie"></textarea>
+                            <span class="ask textarea" title="提示信息" data-container="body" data-toggle="inf"
+                                  data-placement="right" data-html="true"
+                                  data-content="可以指定Cookies字符串，比如：<br>token=d906b69209d9de92789;<br>pvid=954970634;flv=10.0"
+                                  data-trigger="hover"></span>
+                        </div>
+                    </div>
+
+                    <div id="msg_edit_template" class="mgsbox" style="display: none;">
+                        <div class="alert alert-warning msg-alert">
+                            您的网络连接有问题。
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="determine modal-determine">
+                        <button type="submit" class="btn btn-default active">确认</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">放弃</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    function showP() {
+        $("[data-toggle='popover']").popover();
+    }
+    $("[data-toggle='inf']").hover().popover();
+</script>
+
+
+
+
+
+

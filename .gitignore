@@ -1,0 +1,6 @@
+/node_modules
+.idea
+/app/bower_components
+/coverage
+/app/gulp-files
+

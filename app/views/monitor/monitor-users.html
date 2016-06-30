@@ -1,0 +1,82 @@
+
+<div class="sub-con">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="myAlert" class="alert alert-warning">
+                <a class="close" data-dismiss="alert">&times;</a>
+                共有<strong> 3 </strong>个监控项，有<strong> 1 </strong>个异常监控事件，请及时查阅处理
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table ng-if="productsList.length!=0"  class="table table-hover table-responsive">
+                <thead>
+                <tr>
+                    <th>监控对象</th>
+                    <th>名称</th>
+                    <th>任务类型</th>
+                    <th>检测频率</th>
+                    <th>监测点状态</th>
+                    <th>响应时间</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>sso.changhong.com</td>
+                    <td>长虹</td>
+                    <td>http监控</td>
+                    <td>10min</td>
+                    <td>异常</td>
+                    <td>无响应</td>
+                    <td>异常</td>
+                    <td class="operation">
+
+                        <a class="icon-link" name="switch" ng-click="switch()" data-toggle="modal" title="启用"><span class="icon icon-use"></span></a>
+                        <a class="icon-link" name="search" ng-click="search()" data-toggle="modal" title="详情"><span class="icon icon-info"></span></a>
+                        <a class="icon-link" name="editor" ng-click="editor()" data-toggle="modal" title="编辑"><span class="icon icon-edit"></span></a>
+                        <a class="icon-link" name="delete"  ng-click="delete()" data-toggle="modal" title="删除"><span class="icon icon-del"></span></a>
+                    </td>
+                </tr>
+                <tr ng-repeat="http in httpItems">
+                    <td>{{http.object}}</td>
+                    <td>{{http.name}}</td>
+                    <td>{{http.type}}</td>
+                    <td>{{http.frequency}}</td>
+                    <td>{{http.mstatus}}</td>
+                    <td>{{http.response}}</td>
+                    <td>{{http.status}}</td>
+                    <td class="operation">
+                        <a class="icon-link" name="switch" ng-click="switch()" data-toggle="modal" title="启用"><span class="icon icon-use"></span></a>
+                        <a class="icon-link" name="search" ng-click="search()" data-toggle="modal"><span class="icon icon-info"></span></a>
+                        <a class="icon-link" name="editor" ng-click="editor()" data-toggle="modal"><span class="icon icon-edit"></span></a>
+                        <a class="icon-link" name="delete"  ng-click="delete()" data-toggle="modal"><span class="icon icon-del"></span></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<div class="row page">
+    <div class="col-md-12">
+        <div class="pagination">
+            <ul class="page">
+                <li class="pre"><a href="#">上一页</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li class="next"><a href="#">下一页</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+

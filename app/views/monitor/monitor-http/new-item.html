@@ -1,0 +1,583 @@
+<form role="form" class="template-form item-form" id="itemform" name="itemform" ng-submit="mt.addMonitor(addMonitorInfo)">
+
+<fieldset>
+    <legend class="item">添加HTTP/HTTPS监控项</legend>
+        <div class="form-group">
+            <label for="monitorname" class="col-sm-2"><span class="red">*</span>监控名称：</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control monitorname" id="monitorname" placeholder="请输入名称"  name="monitorname" ng-model="addMonitorInfo.name">
+                <!--<span class="ask" title="请为监控项取个名字，方便记忆和查看，例如：360网站服务监控"></span>-->
+                <span class="ask" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                          data-content="请为监控项取个名字，方便记忆和查看，例如：360网站服务监控" data-trigger="hover">
+                </span>
+            </div>
+        </div>
+        <div class="form-group" style="height: 174px">
+            <label for="monitorproject" class="col-sm-2"><span class="red">*</span>监控对象：</label>
+            <div class="col-sm-10">
+                <textarea class="form-control suggest" id="monitorproject" rows="8" ng-model="addMonitorInfo.url" placeholder="填写方式：监控项URL(空格)IP，例如: http://sso.changhong.com/(空格)1.1.1.1(IP可选填)，多个URL时请换行分隔，目前已支持https" name="monitorproject"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2"><!--<span class="red">*</span>-->请求头部内容：</label>
+            <div class="col-sm-10">
+                <textarea class="form-control suggest"  rows="4" placeholder="请求头部内容" name="monitorheaders" ng-model="addMonitorInfo.headers"></textarea>
+                 <span class="textarea" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                       data-content="请为监控项输入请求的头部内容，例如：
+Accept:text/html,application/xhtml+xml,
+application/xml;
+q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding:gzip, deflate, sdch
+Accept-Language:zh-CN,zh;q=0.8
+Cache-Control:max-age=0
+Connection:keep-alive
+Cookie:chjk=MjAxNTgxMTE=
+Host:localhost:8000" data-trigger="hover">
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2"><!--<span class="red">*</span>-->请求主体内容：</label>
+            <div class="col-sm-10">
+                <textarea class="form-control suggest"  rows="4" placeholder="请求主体内容" name="monitorheaders" ng-model="addMonitorInfo.body"></textarea>
+                <!--<span class="ask" title='请为监控项输入请求的头部内容'></span>-->
+                <span class="ask textarea" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                      data-content="请为监控项输入请求的头部内容" data-trigger="hover">
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2"><!--<span class="red">*</span>-->权限：</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control monitorname"  placeholder="请输入权限"  name="monitorname" ng-model="addMonitorInfo.authorization">
+                <!--<span class="ask" title="请为监控项取个名字，方便记忆和查看，例如：360网站服务监控"></span>-->
+                <span class="ask" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                      data-content="请为监控项设置权限" data-trigger="hover">
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">python文件URL：</label>
+            <div class="col-sm-10">
+                <input type="file" style="display: inline-block;" ng-model="addMonitorInfo.pythonUrl">
+                <!--<span class="ask" title="请为监控项取个名字，方便记忆和查看，例如：360网站服务监控"></span>-->
+              <span class="ask" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                    data-content="请选择相应的脚本文件上传" data-trigger="hover">
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2"><span class="red">*</span>监测点：</label>
+            <div class="col-sm-10 get-method">
+                <label class="checkbox-inline first-label">
+                    <input type="checkbox" name="getNode" id="mianyang" value="19" checked>绵阳监测点
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="getNode" id="chengdu" value="20">成都检测点
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="getNode" id="beijing" value="21">北京监测点
+                </label>
+            </div>
+
+        </div>
+        <!--单击展开页面-->
+        <div class="form-group" style="height: auto">
+                <a class="advanced-option" data-toggle="collapse" data-parent="#accordion" data-target="#collapse">高级选项
+                    <span class="caret "></span>
+                </a>
+            <div id="collapse" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <div class="collapse-contents">
+                        <div class="collapse-title">
+                               <label class="col-sm-2"><b>采集策略：</b></label>
+                        </div>
+                        <div class="form-group collapse-content">
+                            <label class="col-sm-2"> <span class="red">*</span>采集模板：</label>
+                            <div class="col-sm-10 select-box">
+                                <a href="" id="{{modelCon.id}}" class="select-replace-link" style="color:#000;">
+                                    {{modelCon.name}}
+                                    <!--<span class="glyphicon glyphicon-chevron-down pull-right"></span>-->
+                                    <span class="trangle-down pull-right"></span>
+                                </a>
+
+                                <select class="model-select" id="model-select-add" ng-model="modelSelected.value" ng-change="updateSelected();" >
+                                    <!--<option selected value="0">系统默认模板</option>-->
+                                    <option ng-repeat="model in defaultModelList" value="{{model.id}}" ng-selected="model.id==modelSelected.value">
+                                        {{model.name}}
+                                    </option>
+                                </select>
+                               
+
+                                <button type="button" style="width:120px;height:30px;border-radius:4px;" class="btn-add color-monitor" onclick="btn();">创建新监控模板</button>
+
+                                  <span class="ask" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                                        data-content="选择本次监控需要使用的监控模板" data-trigger="hover"></span>
+                                <table class="table table-collect">
+                                    <tbody>
+                                        <tr>
+                                            <td>监控频率： </td>
+                                            <td>{{modelCon.monitorFrequency}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>请求方法： </td>
+                                            <td>{{modelCon.httpMethod}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>响应内容： </td>
+                                            <td>{{modelCon.responseContent}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>匹配方式： </td>
+                                            <td ng-show="modelCon.matchRule==0">匹配响应内容</td>
+                                            <td ng-show="modelCon.matchRule==1">不匹配响应内容</td>
+                                            <td ng-show="modelCon.matchRule==2">不关心响应内容</td>
+                                        </tr>
+                                        <tr>
+                                            <td>COOKIE： </td>
+                                            <td>{{modelCon.cookie}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse-contents alarm-contents">
+                        <div class="collapse-title alarm-title">
+                            <label class="col-sm-2"><b>告警策略：</b></label>
+                        </div>
+                        <!--<div class="form-group collapse-content alarm-content">-->
+                        <div class="collapse-content">
+                            <!--异常条件-->
+                            <div class="form-group">
+                                <label class="col-sm-2"> <span class="red">*</span>异常条件：</label>
+                                <div class="col-sm-10 condition">
+                                    <div class="condition-top">
+                                        <span>当响应时间大于 </span>
+                                        <input type="text" class="input-sm" value="1000" placeholder="10000" name="time" ng-model="addMonitorInfo.maxAlarmTime"/><span class="ms">ms</span>
+                                        <!--<span class="ask ask-bottom" title="请为监控项取个名字，方便记忆和查看，例如：360网站服务监控 "></span>-->
+                                        <span class="ask" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                                         data-content="响应时间代表了用户打开网站的首页面时间，如果填写0，代表您不关心此时间" data-trigger="hover"></span>
+                                        <span> 或被监控URL出现无法访问；</span>
+                                    </div>
+                                    <div class="condition-bottom">
+                                        <span>同时，当有至少 </span><input type="text" class="input-sm" value="2" ng-model="addMonitorInfo.maxNodeAlarm"/>
+                                        <span> 个监测点出现异常，并且此异常连续出现</span>
+                                        <span>同时，当有至少 </span><input type="text" class="input-sm" value="1" ng-model="addMonitorInfo.maxExcptionAlarm"/>
+                                        <span> 时进行报警。</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--告警次数-->
+                            <div class="form-group">
+                                <label class="col-sm-2"> <span class="red">*</span>告警次数：</label>
+                                <div class="col-sm-10 times">
+                                    <span>监控将最多发出</span>
+                                    <!--<select class="form-control" name="mSelect" ng-model="addMonitorInfo.alarmTimeMessage">-->
+                                    <select class="form-control" name="mSelect">
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                        <option value="">5</option>
+                                    </select>
+                                    <span>次告警信息。</span>
+                                </div>
+                            </div>
+                            <!--告警组-->
+                            <div class="form-group">
+                                <label class="col-sm-2"> <span class="red">*</span>告警组：</label>
+                                <div class="col-sm-10 alarm-group select-box">
+
+                                    <a href=""  class="select-replace-link" style="color:#000;">
+                                        {{modelCon.name}}
+                                        <!--<span class="glyphicon glyphicon-chevron-down pull-right"></span>-->
+                                        <span class="trangle-down pull-right"></span>
+                                    </a>
+
+                                    <select class="model-select" id="alarm-select-add" ng-model="modelSelected.value" ng-change="updateSelected();" >
+                                        <!--<option selected value="0">系统默认模板</option>-->
+                                        <option ng-repeat="model in defaultModelList" value="{{model.id}}" ng-selected="model.id==modelSelected.value">
+                                            {{model.name}}
+                                        </option>
+                                        <!--<option onclick="btn()">创建监控模板</option>-->
+                                    </select>
+
+
+                                    <button type="button" style="width:120px;height:30px;border-radius:4px;" class="btn-add color-monitor" onclick="alarmBtn()">创建新报警组</button>
+
+                                    <span class="ask" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                                    data-content="响应时间代表了用户打开网站的首页面时间，如果填写0，代表您不关心此时间" data-trigger="hover"></span>
+                                    <table class="table table-collect table-alarm">
+                                        <tbody>
+                                            <tr>
+                                                <th><b>姓名</b></th>
+                                                <th>邮件</th>
+                                                <th>手机</th>
+                                            </tr>
+                                            <tr>
+                                                <td>张三 </td>
+                                                <td>zhangsan@126.com</td>
+                                                <td>18143018078 </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</fieldset>
+    <div id="msg_add_item" class="mgsbox" style="display: none;">
+        <div class="alert alert-warning msg-alert">
+            您的网络连接有问题。
+        </div>
+    </div>
+<div class="determine">
+    <button type="submit" class="btn btn-default active">确认</button>
+    <button type="submit" class="btn btn-default">放弃</button>
+</div>
+</form>
+
+<script>
+    function btn(){
+//        $("#templateModal").modal("show");
+        $("#templateModal").modal({
+            backdrop:'static'
+        });
+    }
+    function alarmBtn(){
+        $("#alarmModal").modal({
+            backdrop:'static'
+        });
+    }
+</script>
+<!--折叠导航默认隐藏-->
+<script type="text/javascript">
+    $(function(){
+        $('#collapse').collapse('hide');
+    });
+
+</script>
+<script type="text/javascript">
+$(function(){
+    $("a.advanced-option").click(function(){
+        if($(this).hasClass('caret-changed')){
+            $(this).removeClass("caret-changed");
+        }else{
+            $(this).addClass("caret-changed");
+        }
+    });
+});
+</script>
+<script>
+    $(function(){
+        $(".alarm-group ul li").click(function(){
+            if($(this).hasClass('active-li')){
+                $(this).removeClass("active-li");
+            }else{
+                $(this).addClass("active-li");
+            }
+        });
+    });
+</script>
+<script>
+    $(function() {
+        $('.determine').find('button').on("click", function () {
+            $('.determine').find('button').removeClass('active');
+            $(this).addClass('active');
+        });
+    });
+</script>
+<!--表单验证-->
+<script>
+    $("[data-toggle='inf']").hover().popover();
+
+//    $.validator.setDefaults({
+//        submitHandler: function() {
+////            alert("提交事件!");
+//        }
+//    });
+//    $(function() {
+//// 在键盘按下并释放及提交后验证提交表单
+//        $("#monitorname").focus();
+//        $("#itemform").validate({
+//            rules: {
+//                monitorname: "required",
+//                monitorproject: {
+//                    required: true,
+//                    url: "[a-zA-z]+://[^s]* "
+//                }
+//            },
+//            messages: {
+//                monitorname: "请输入新增监控项名称",
+//                monitorproject: {
+//                    required: "请输入监控项网址",
+//                    url: "请按正常网址规格填写"
+//                }
+//            }
+//        });
+//    });
+</script>
+
+
+<!-- 创建监控模板模态框 -->
+<div class="modal fade" id="templateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form role="form" class="form-horizontal template-form modal-form basic-form" ng-submit="mt.addTemplate(templateAddInfo)">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">创建监控项模板</h4>
+                <!--h4 id与该模态框id有关-->
+            </div>
+            <div class="modal-body" style="margin:0 auto;">
+                    <div class="form-group"  id="template-form">
+                        <label for="tType" class="col-md-3">模板类型：</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control"  value="HTTP监控" id="tType" disabled ng-model="templateAddInfo.templateType">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tName" class="col-md-3"><span class="red">*</span>模板名称：</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="请输入名称" id="tName" ng-model="templateAddInfo.name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tType" class="col-md-3">监控频率：</label>
+                        <div class="col-md-9">
+                            <select class="form-control" name="mSelect" id="template-add-monitor-select-frequency" >
+                                <option value="1">1min</option>
+                                <option value="2">2min</option>
+                                <option value="3">3min</option>
+                                <option value="5">5min</option>
+                                <option value="10">10min</option>
+                                <option value="15" selected>15min</option>
+                                <option value="30">30min</option>
+                            </select>
+                            <span class="ask select" title="提示信息" data-container="body" data-toggle="inf" data-placement="right" data-content="监控端发起检测的时间间隔，比如5分钟检测一次是否可用" data-trigger="hover"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">HTTP请求方法：</label>
+                        <div class="col-md-9 get-method">
+                            <label class="checkbox-inline first-label">
+                                <input type="radio" name="getMethodTemp" id="option1" value="GET" checked> GET
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="radio" name="getMethodTemp" id="option2" value="POST"> POST
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="radio" name="getMethodTemp" id="option3" value="HEAD"> HEAD
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group" style="height: 99px">
+                        <label class="col-md-3">请求头部：</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control suggest" rows="4" placeholder="不能超过1024字符" ng-model="templateAddInfo.requestHeader"></textarea>
+                            <!--<span class="ask textarea"></span>-->
+                   <span class="ask textarea" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                         data-content="请输入请求的头部内容，例如：
+Accept:text/html,application/xhtml+xml,
+application/xml;
+q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding:gzip, deflate, sdch
+Accept-Language:zh-CN,zh;q=0.8
+Cache-Control:max-age=0
+Connection:keep-alive
+Cookie:chjk=MjAxNTgxMTE=
+Host:localhost:8000" data-trigger="hover">
+                </span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="height: 99px">
+                        <label class="col-md-3">响应头部：</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control suggest" rows="4" placeholder="不能超过1024字符" ng-model="templateAddInfo.responseHeader"></textarea>
+                            <!--<span class="ask textarea"></span>-->
+                 <span class="ask textarea" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                       data-content="你可以通过指定匹配内容来检查响应内容是否正确" data-trigger="hover">
+                </span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="height: 99px">
+                        <label class="col-md-3">响应主体内容：</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control suggest" rows="4" placeholder="不能超过1024字符" ng-model="templateAddInfo.responseContent"></textarea>
+                            <!--<span class="ask textarea"></span>-->
+                 <span class="ask textarea" title="提示信息" data-container="body" data-toggle="inf" data-placement="right"
+                       data-content="你可以通过指定匹配内容来检查响应内容是否正确" data-trigger="hover">
+                </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">匹配方式：</label>
+                        <div class="col-md-9 get-method">
+                            <label class="checkbox-inline first-label">
+                                <input type="radio" name="matchOptionTemp" id="option11" value="0" checked> 匹配响应内容
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="radio" name="matchOptionTemp" id="option21" value="1"> 不匹配响应内容
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="radio" name="matchOptionTemp" id="option31" value="2"> 不关心
+                                <span class="ask select" title="提示信息" data-container="body" data-toggle="inf" data-placement="right" data-html="true" data-content="匹配：必须和用户输入的响应内容完全一样<br>不匹配：和用户输入的响应内容不能完全一样 <br>不关心：忽略用户输入的响应内容" data-trigger="hover"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group" style="height:100px">
+                        <label class="col-md-3 ">Cookie内容：</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control suggest" rows="4" placeholder="不能超过1024字符" ng-model="templateAddInfo.cookie"></textarea>
+                            <span class="ask textarea" title="提示信息" data-container="body" data-toggle="inf" data-placement="right" data-html="true" data-content="可以指定Cookies字符串，比如：<br>token=d906b69209d9de92789;<br>pvid=954970634;flv=10.0" data-trigger="hover"></span>
+                        </div>
+                    </div>
+
+            </div>
+                <div id="msg_monitor_template_box" class="mgsbox" style="display: none;">
+                    <div class="alert alert-warning msg-alert">
+                        您的网络连接有问题。
+                    </div>
+                </div>
+            <div class="modal-footer">
+                <div class="determine modal-determine">
+                    <button type="submit" class="btn btn-default active">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">放弃</button>
+                </div>
+            </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--创建报警组模态框-->
+<div class="modal fade" id="alarmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form role="form" class="template-form item-form alarm-form-modal basic-form">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="alarmModalLabel">创建新报警组</h4>
+            </div>
+            <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-md-3"><span class="red">*</span>报警组名称：</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3"><span class="red">*</span>描述：</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">报警方式：</label>
+                        <div class="col-md-9">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox1" value="option1">短信
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox2" value="option2">邮件
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3"><span class="red">*</span>短信接收时段：</label>
+                        <div class="col-md-9 accept-times">
+                            <select class="form-control start">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                                <option value="">5</option>
+                                <option value="">6</option>
+                                <option value="">7</option>
+                                <option value="">8</option>
+                                <option value="">9</option>
+                                <option value="">10</option>
+                                <option value="">11</option>
+                                <option value="">12</option>
+                                <option value="">13</option>
+                                <option value="">14</option>
+                                <option value="">15</option>
+                                <option value="">16</option>
+                                <option value="">17</option>
+                                <option value="">18</option>
+                                <option value="">19</option>
+                                <option value="">20</option>
+                                <option value="">21</option>
+                                <option value="">22</option>
+                                <option value="">23</option>
+                                <option value="">24</option>
+                            </select>
+                            <span>时至</span>
+                            <select class="form-control end">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                                <option value="">5</option>
+                                <option value="">6</option>
+                                <option value="">7</option>
+                                <option value="">8</option>
+                                <option value="">9</option>
+                                <option value="">10</option>
+                                <option value="">11</option>
+                                <option value="">12</option>
+                                <option value="">13</option>
+                                <option value="">14</option>
+                                <option value="">15</option>
+                                <option value="">16</option>
+                                <option value="">17</option>
+                                <option value="">18</option>
+                                <option value="">19</option>
+                                <option value="">20</option>
+                                <option value="">21</option>
+                                <option value="">22</option>
+                                <option value="">23</option>
+                                <option value="">24</option>
+                            </select>
+                            <span>时</span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="height: 230px">
+                        <label class="col-md-3"><span class="red">*</span>关联报警接收人：</label>
+                        <div class="col-md-9">
+                            <div class="add-accept">
+                                <h4 class="accept-title"><a href="">全部添加</a></h4>
+                                <ul>
+                                    <li>{{userInfo.loginName}} <span class="glyphicon glyphicon-plus pull-right"></span></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <div class="del-accept">
+                                <h4 class="accept-title"><a href="">全部删除</a></h4>
+                                <ul>
+                                    <li><span class="glyphicon glyphicon-plus pull-right"></span></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="determine modal-determine">
+                    <button type="submit" class="btn btn-default active">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">放弃</button>
+                </div>
+            </div>
+
+        </div>
+        </form>
+    </div>
+</div>

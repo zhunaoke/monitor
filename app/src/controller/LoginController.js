@@ -1,0 +1,43 @@
+/**
+ * Created by zhaott on 2016/2/24.
+ */
+angular.module("loginApp",[
+    "ngCookies",
+    "loginApp.service"
+]).controller("LoginController",["$scope","$location","$window","user","$cookies","$cookieStore","$rootScope",function($scope,$location,$window,user,$cookies,$cookieStore,$rootScope){
+    $scope.user={
+        loginName:"",
+        passWord:""
+    };
+    init=function(){
+        var userCookie=getCookie('chjk');
+        //console.log(!userCookie);
+        if(!userCookie){
+        }else{
+            window.location.href="/app/#/";
+        }
+    };
+    init();
+    $scope.loginUsr=function(userInfo){
+        //console.log("login:"+JSON.stringify(userInfo));
+        //验证表单有效性；
+        if(checkLoginForm(userInfo,'msg')){
+            _showMask();
+            user.login(userInfo).then(function(data){
+                _hideMask();
+                //angular.element("#msg").hide();
+                //console.log("成功！"+JSON.stringify(data));
+                $window.localStorage.token=base64encode(data.data.token);
+                window.location.href="/app/#/";
+            },function(err){
+                _hideMask();
+                if(err.code==500){
+                    showMsg('请联系管理员(QQ:739302606)开通权限！','msg');
+                }else{
+                    showMsg(err.info,'msg');
+                }
+
+            });
+        }
+    };
+}]);

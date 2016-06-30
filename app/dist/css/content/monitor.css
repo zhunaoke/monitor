@@ -1,0 +1,655 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.col-md-10.monitor-content{
+    padding: 0;
+    min-height: 55vh;
+}
+h4 {
+    margin-top: -85px;
+    margin-bottom: 20px;
+    font: 16px microsoft yahei;
+    line-height: 16px;
+    border-radius: 0;
+}
+.container{
+    width: 100%;
+}
+.top-content{
+    border: 1px solid #3ea9f5;
+    padding: 15px 0 0 0;
+    border-top: 40px solid #3ea9f5;
+}
+.row{
+    margin: 0;
+    padding: 0;
+}
+
+
+/*分页*/
+.row.page{
+    padding-bottom: 500px;
+    padding-top: 50px;
+}
+.pagination{
+    width: 500px;
+    height: 45px;
+    display: block;
+    margin: 0 auto;
+}
+.pagination ul{
+    width: 500px ;
+    height: 45px;
+}
+.pagination ul li{
+    width:40px ;
+    line-height:30px;
+    display: inline-block;
+    float: left;
+    text-align: center;
+    border: 1px solid #dddddd;
+    margin-left: -1px;
+}
+.pagination ul li.pre,.pagination ul li.next{
+    width:70px;
+}
+.pagination ul li.pre{
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.pagination ul li.next{
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.pagination ul li:hover{
+    background-color: #e5e5e5;
+    color: #3ea9f5;
+}
+/*placeholder样式    line-height:normal时才会垂直居中*/
+input::-webkit-input-placeholder { color:#9c9c9c; font: 14px "microsoft yahei";}
+input::-moz-placeholder {color:#9c9c9c; font: 14px "microsoft yahei";} /* firefox 19+ */
+input:-ms-input-placeholder {color:#9c9c9c; font: 14px "microsoft yahei";} /* ie */
+input:-moz-placeholder {color:#9c9c9c; font: 14px "microsoft yahei";}
+textarea::-webkit-input-placeholder {color:#9c9c9c; font: 14px "microsoft yahei";}
+textarea::-moz-placeholder {color:#9c9c9c; font: 14px "microsoft yahei";} /* firefox 19+ */
+textarea:-ms-input-placeholder {color:#9c9c9c; font: 14px "microsoft yahei";} /* ie */
+textarea:-moz-placeholder {color:#9c9c9c; font: 14px "microsoft yahei";}
+.submit{
+    /* width:26%; */
+    background-color: #ffc263;
+    height: 50px;
+    border-color: #ffc263;
+    /* font: 28px microsoft yahei; */
+    margin:40px 0;
+    /* margin-left:37%; */
+}
+/*http-template*/
+
+fieldset {
+    padding: 35px 0 45px 30px;
+    border: 1px solid #91C2DE;
+    border-radius: 4px;
+    margin: 35px 15px 35px 15px;
+}
+legend {
+    width: 165px;
+    padding: 0 0 0 22px;
+    margin: 0 0 0 35px;
+    font: 14px "microsoft yahei";
+    color: #333;
+    border: 1px solid #91C2DE;
+    border-radius: 4px;
+    line-height: 45px;
+}
+form.template-form{
+    margin:0 0 0 30px;
+    width:1100px;
+}
+span.red{
+    color:#ff6b5c;
+    margin-left: -5px;
+}
+form.template-form .form-group,form.template-form.item-form .form-group{
+    /* height:30px; */
+    margin-bottom: 15px;
+    height: auto;
+    overflow: hidden;
+}
+form.template-form label{
+    font:14px "microsoft yahei";
+    color: #000000;
+    line-height: 30px;
+    text-align:right;
+}
+form.template-form .form-group input[type='text'],
+form.template-form .form-group input[type='email'],
+form.template-form .form-group input[type='tel']{
+    line-height:normal;/*有placeholder值时只能是line-height:normal，否则不能垂直居中*/
+    width: 230px;
+    height: 30px;
+    padding:0 12px;
+    border: 1px solid #ccc;
+}
+form.template-form .form-group .col-sm-10 input,form.template-form.item-form .form-group .col-sm-10 input,form.template-form .form-group .col-sm-10 select,form.template-form .form-group .col-sm-10 textarea{
+    margin-left: 20px;
+}
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio]{
+    position: relative;
+}
+form.template-form select,form.template-form  select option{
+    line-height: 28px;
+    font: 14px "microsoft yahei";
+    color:#000000;
+    padding: 0 0 0 12px;
+    height: 30px;
+    width: 280px;
+    border: 1px solid #ccc;
+}
+.cookie{
+    margin-left: -19px;
+    margin-right: 19px;
+}
+.form-control[disabled]{
+    background-color: #ffffff;
+    color: #333;
+}
+.get-method .checkbox-inline{
+    padding:0;
+    margin:0;
+    line-height: 20px;
+    min-height: 20px;
+}
+input[type='checkbox'], input[type='radio'] {
+    margin: -2px 5px 0 0;
+    line-height: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+form.template-form textarea{
+    width: 420px;
+    margin: 0;
+    border: 1px solid #c9c7c7;
+}
+.form-horizontal.get-method .checkbox, .form-horizontal.get-method .checkbox-inline, .form-horizontal.get-method .radio, .form-horizontal.get-method .radio-inline {
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/*http-item*/
+legend.item{
+    width: 200px;
+}
+form.item-form{
+    margin:0 0 0 20px;
+}
+form.template-form.item-form .form-group:first-child input{
+    width: 280px;
+}
+
+form.template-form.item-form .col-sm-10 textarea{
+    width:460px;
+}
+form.template-form.item-form .col-sm-10.get-method{
+    margin-top: 5px;
+}
+/*疑问提示图标*/
+.template-form select,textarea.suggest,.form-control {
+    display: inline-block;
+}
+span.ask{
+    background:url("../../images/ask.png") no-repeat;
+    background-size: 18px 18px;
+    width: 18px;
+    height:18px;
+    display: inline-block;
+    margin: -3px 0;
+}
+span.ask-bottom{
+    margin: -4px 0;
+}
+/*不同行高的ask位置*/
+span.ask.textarea{
+    height: 56px;
+}
+span.ask.select{
+    margin: -3px 0;
+}
+
+/*http-item高级选项弹出内容*/
+#collapse{
+    margin:0 0 0 -15px;
+}
+#collapse .panel-body{
+    padding:15px 15px 0 0;
+}
+.collapse-content .col-sm-10{
+    padding-left:15px;
+}
+/*a.advanced-option{*/
+/*margin-left:110px;*/
+/*}*/
+a.advanced-option span.caret{
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+.collapse-contents{
+    height: 255px;
+    background-color: #fafafa;
+}
+.condition .condition-top,.condition .condition-bottom{
+    height: 30px;
+    /*line-height: 30px;*/
+    margin-bottom:15px;
+}
+form.template-form.item-form .form-group .collapse-title{
+    display: block;
+    height: 40px;
+    border-bottom: 1px dashed #CCC;
+    margin-bottom: 12px;
+    padding-left: 20px;
+}
+form.template-form.item-form .form-group .panel-body .collapse-title label{
+    line-height: 40px;
+}
+form.template-form.item-form .form-group .panel-body .collapse-content{
+    margin-left:22px;
+    height: auto;
+    overflow: hidden;
+}
+form.template-form.item-form .collapse-content .form-group .condition .condition-top input[name="time"]{
+    width: 104px;
+    text-align:left;
+    padding-left: 12px;
+}
+
+form.template-form.item-form .collapse-content .form-group input{
+    vertical-align: middle;
+    padding:0;
+    text-align: center;
+}
+form.template-form.item-form .collapse-content .form-group .condition .condition-bottom input{
+    width: 54px;
+}
+span.ms{
+    margin-left: -30px;
+    background-color: #EEE;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding:3px 5px 6px 5px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+/*菜单下拉时caret旋转90°,caret-changed类名不出现在html里*/
+a.caret-changed span.caret{
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+/*采集策略*/
+table.table-collect{
+    width:480px;
+    height:126px;
+    border: 1px dashed #CCC;
+    margin: 20px 0;
+    border-collapse: collapse;
+
+}
+form.template-form.item-form .collapse-contents.alarm-contents .collapse-content .form-group .col-sm-10 input{
+    margin: 0;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+    padding: 0;
+}
+table.table-collect tbody tr{
+    height: 25px;
+    width:479px;
+    border: 1px dashed #CCC;
+}
+table.table-collect tbody td{
+
+    border-collapse: collapse;
+    text-align: left;
+    vertical-align: middle;
+    border-top: 1px dashed #ddd;
+}
+table.table-collect tbody td{
+    padding-left: 10px;
+}
+/*按钮组,button z-index:10 保证下拉菜单一直在其下面*/
+.btn-group.btn-item{
+    width: 280px;
+}
+.btn-group.btn-item button{
+    width: 280px;
+    height: 30px;
+    text-align: left;
+    background-color: #fff;
+    -webkit-box-shadow:none;
+    box-shadow:none;
+    padding: 0 0 0 12px;
+    z-index: 10;
+}
+.btn-group.btn-item button:hover,.btn-group.btn-item button:active{
+    background-color: #ffffff;
+    border-radius:4px;
+    border-color: #3ea9f5;
+    -webkit-box-shadow: inset 0 3px 5px #fff;
+    box-shadow: inset 0 3px 5px #fff;
+    z-index: 10;
+}
+.btn-group.open .dropdown-toggle{
+    -webkit-box-shadow: inset  0 3px 5px #fff;
+    box-shadow: inset 0 3px 5px #fff;
+    z-index: 10;
+}
+.btn-group.btn-item button.active, .open.btn-group.btn-item button,.btn-group.btn-item.open button:focus,.btn-group.btn-item.open button:hover,.btn-group.btn-item.open button:active{
+    color: #333;
+    background-color: #fff;
+    border-color: #3ea9f5;
+    border-bottom: none;
+    z-index: 10;
+    border-radius: 4px 4px 0 0;
+}
+.btn-group.btn-item button span{
+    margin: 0 0 0 160px;
+    text-align: center;
+    vertical-align: middle;
+    color: #333;
+}
+.dropdown-menu {
+    z-index:1;
+    position:absolute;/*位置绝对，保证弹出框不推动下面的表格*/
+    min-width: 280px;
+    padding: 30px 0 5px 0;
+    margin: -30px 0 0 0;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.open.btn-group.btn-item .dropdown-menu {
+    display: block;
+    border-color: #3ea9f5;}
+.dropdown-menu.active{
+    z-index:1;
+    border-color: #3ea9f5;
+}
+.dropdown-menu li.active-li a,.dropdown-menu li:hover a{
+    color: #fff;
+    background-color: #3ea9f5;
+}
+
+.btn-group.btn-item button span.latter{
+    margin: 0 0 0 179px;
+}
+/*告警策略*/
+.collapse-contents.alarm-contents{
+    height: 340px;
+    margin-top: -250px;
+}
+form.template-form.item-form .form-group .collapse-title.alarm-title{
+    margin-top: 275px
+}
+.collapse-contents.alarm-contents .collapse-content .form-group:first-child{
+    height: 75px;
+}
+table.table-collect.table-alarm{
+    height: 50px;
+}
+table.table-collect.table-alarm tbody th{
+    padding-left: 10px;
+    text-align: left;
+    vertical-align: middle;
+    border-top: 1px dashed #CCC;
+}
+
+table.table-collect.table-alarm tbody th:first-child,table.table-collect.table-alarm tbody th:last-child{
+    width: 30%;
+}
+form.template-form .times select{
+    width: 53px;
+    margin: 0;
+}
+/*确认和取消*/
+.determine{
+    width: 1066px;
+    height: 140px;
+    background-color: #f8f8f9;
+    border-radius: 4px;
+    margin: 30px 0 50px 17px;
+    text-align: center;
+    padding-top: 45px;
+}
+.determine .btn.btn-default{
+    width: 280px;
+    height:48px;
+    background-color: #f8f8f9;
+    color: #3ea9f5;
+    border:1px solid #f8f8f9;;
+    font: 14px "microsoft yahei";
+}
+.determine .btn.btn-default:hover {
+    background-color: #ffc263;
+    color: #ffffff;
+    border:1px solid #ffc263;
+}
+.determine .btn-default.active.focus,.determine .btn-default.active:focus,.determine .btn-default.active:hover,.determine .btn-default:active.focus,.determine .btn-default:active:focus,.determine .btn-default:active:hover,.determine .open>.dropdown-toggle.btn-default.focus,.determine .open>.dropdown-toggle.btn-default:focus,.determine .open>.dropdown-toggle.btn-default:hover {
+    background-color: #ffc263;
+    color: #ffffff;
+    border:1px solid #ffc263;
+}
+.determine .btn.active.focus,.determine .btn.active:focus,.determine .btn.focus,.determine .btn:active.focus,.determine .btn:active:focus,.determine .btn:focus {
+    outline:none;
+    outline-offset:0;
+}
+.determine .btn.active,.determine .btn:active {
+    -webkit-box-shadow:none;
+    box-shadow:none;
+}
+.determine .btn.btn-default.active{
+    background-color: #ffc263;
+    color: #ffffff;
+    border:1px solid #ffc263;
+}
+.determine button:first-child{
+    margin-right: 15px;
+}
+/*.modal-backdrop{*/
+/*z-index:99;*/
+/*}*/
+
+
+/*表单验证*/
+
+form label.error{
+    color:red;
+    display: inline;
+}
+
+
+/*监控模板样式-紫色*/
+.con.border-set fieldset,.con.border-set legend{
+    border: 1px solid #E3B7EA;
+}
+.con.border-set span.ask{
+    background:url("../../images/ask-template.png") no-repeat;
+    background-size: 18px 18px;
+    width: 18px;
+    height:18px;
+    display: inline-block;;
+}
+.con.border-set span.ask.textarea{
+    height: 56px;
+}
+
+/*******添加监控模板下拉菜单*******/
+form.template-form .form-group .col-sm-10 select.model-select{
+    margin:0;
+    border-radius: 4px;
+}
+/*监控详情*/
+a.abnormal{
+    padding:1px 25px;
+    color: #fff;
+    border-radius: 4px;
+    background-color:#ff4100;
+    line-height: 34px;
+    height: 34px;
+    vertical-align: middle;
+}
+a.normal{
+    background-color:#42dd3f;
+}
+a.edit{
+    padding:1px 10px;
+    border: 1px solid #91C2DE;
+    border-radius: 2px;
+}
+a.edit:hover{
+    background-color:#91C2DE;
+    color: #fff;
+}
+
+
+
+
+/*.item-detail{*/
+/*!*margin:35px 15px 35px 15px;*!*/
+/*margin:35px 0;*/
+/*}*/
+/*.item-detail .chart-box{*/
+/*border:1px solid #91C2DE;*/
+/*width:auto;*/
+/*overflow:hidden;*/
+/*}*/
+/*.con .item-detail h3.color-chart{*/
+/*background-color: #acd7f0;*/
+/*border:1px solid #91C2DE;*/
+/*}*/
+/*.item-detail span.ask{*/
+/*margin-left:5px;*/
+/*}*/
+/*.item-detail span.detail-title{*/
+/*width: 70px;*/
+/*}*/
+/*.item-detail .chart-box.basic-inf{*/
+/*width:450px;*/
+/*height:156px;*/
+/*}*/
+/*.item-detail .chart-box.basic-inf h3{*/
+/*!*width: 450px;*!*/
+/*}*/
+/*.item-detail .chart-box.basic-inf ul{*/
+/*!*width:450px;*!*/
+/*padding: 5px 20px;*/
+/*}*/
+/*.item-detail .chart-box.basic-inf ul li{*/
+/*height:34px;*/
+/*line-height: 34px;*/
+/*}*/
+/*.item-detail .chart-box.collect-alarm{*/
+/*!*width:660px;*!*/
+/*height:156px;*/
+/*}*/
+/*.item-detail .chart-box.collect-alarm h3{*/
+/*!*width: 660px;*!*/
+/*}*/
+/*.item-detail .chart-box.collect-alarm ul{*/
+/*!*width:660px;*!*/
+/*padding: 5px 20px;*/
+/*}*/
+/*.item-detail .chart-box.collect-alarm ul li{*/
+/*height:34px;*/
+/*line-height: 34px;*/
+/*width: 50%;*/
+/*display: inline-block;*/
+/*float: left;*/
+/*}*/
+
+
+/*item-detail*/
+
+
+.item-detail{
+    margin:35px 0;
+}
+
+.con .item-detail .chart-box{
+    border:1px solid #91C2DE;
+    width:auto;
+    height:auto;
+    min-height: 160px;
+    overflow:hidden;
+    margin:0 0 20px 0;
+}
+
+.con .item-detail h3.color-chart{
+    width:auto;
+    overflow: hidden;
+    background-color: #acd7f0;
+    border:1px solid #91C2DE;
+}
+.con .item-detail .chart-box.basic-inf{
+    width: 480px;
+}
+.con .item-detail .chart-box.collect-alarm{
+    width: 700px;
+}
+.item-detail .chart-box.whole-width{
+    width:100%;
+    overflow: hidden;
+}
+
+.item-detail .chart-box ul{
+    padding: 5px 20px;
+}
+.item-detail .chart-box.basic-inf ul li{
+    height:34px;
+    line-height: 34px;
+}
+
+.item-detail .chart-box.collect-alarm ul li{
+    height:34px;
+    line-height: 34px;
+    width: 50%;
+    display: inline-block;
+    float: left;
+}
+.item-detail .chart-box.whole-width .map-box{
+    width:auto;
+    height:auto;
+    overflow: hidden;
+    zoom:1;
+}
+
+.item-detail .chart-box.whole-width .map-box.web-response{
+    width:300px;
+}
+.item-detail .chart-box.whole-width .map-box.table-detail{
+    width:700px;
+}
+.item-detail .chart-box.whole-width .map-box .tit{
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+}
+
+.item-detail .chart-box table.node-detail-table{
+    border:0;
+    /* margin-top:10px; */
+    padding: 10px 20px 10px 10px;
+}
+.item-detail .chart-box table.node-detail-table tr td{
+    border-top:0;
+    border-bottom:1px solid #ddd;
+    height: 30px;
+    line-height: 30px;
+}
+
+
+

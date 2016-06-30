@@ -1,0 +1,182 @@
+.container{
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    position: fixed;
+    z-index: 100;
+    font-weight: 400;
+    font-family: "microsoft yahei";
+}
+.loginBox{
+    width:386px;
+    margin:0 auto;
+    margin-top:6%;
+}
+.login-mid{
+    position: absolute;
+    z-index: 100;
+}
+.login-tit{
+    background:url("../../images/logo_new.png") no-repeat top center;
+    width:386px;
+    height:84px;
+}
+.login-con{
+    padding:30px 60px;
+    background: #fff;
+    color:#506470;
+    margin-top:20px;
+}
+.login-con label{
+    display: block;
+    font-weight: 400;
+}
+.login-con input[type='text'],.login-con input[type='password'],.login-con input[type='email'],.login-con input[type='btton']{
+    width:262px;
+    height:32px;
+    border:1px solid #dee4e8;
+    border-radius: 2px;
+    padding:2px 4px;
+}
+.login-con input[type='submit'],.login-con input[type='button']{
+    width:264px;
+    height:34px;
+    border:0;
+    background: #65c17a;
+    border-radius: 2px;
+    color: #fff;
+    opacity: 1;
+    letter-spacing: 0.5em;
+    margin-top:10px;
+}
+.login-con input[type='submit']:hover,.login-con input[type='button']:hover{
+    background: #6dd986;
+}
+.remember-forgot{
+    margin:5px 0 0 0;
+    height: 30px;
+    line-height: 30px;
+}
+.checkbox input[type=checkbox]{
+    line-height: 30px;
+    margin-top: 9px;
+}
+.checkbox,a{
+    display: inline-block;
+    margin: 0;
+}
+a{
+    line-height: 30px;
+}
+
+    /*验证码*/
+ .gt_holder.popup .gt_popup_wrap,.gt_holder.popup .gt_popup_cross,.gt_holder .gt_holder_top,.gt_holder .gt_box_tips,.gt_holder.en .gt_box_tips,.gt_holder .gt_curtain_button,.gt_holder .gt_curtain_button.moving,.gt_holder .gt_curtain_button.success,.gt_holder .gt_curtain_button.fail,.gt_holder .gt_flash,.gt_holder .gt_ie_success,.gt_holder .gt_loading,.gt_holder.en .gt_loading,.gt_holder .gt_info,.gt_holder .gt_info .success .gt_info_icon,.gt_holder .gt_info .fail .gt_info_icon,.gt_holder .gt_info .abuse .gt_info_icon,.gt_holder .gt_info .forbidden .gt_info_icon,.gt_holder .gt_info .error .gt_info_icon,.gt_holder .gt_bottom,.gt_holder.en .gt_bottom,.gt_holder .gt_refresh_button,.gt_holder .gt_refresh_button:hover,.gt_holder .gt_refresh_button .gt_refresh_tips,.gt_holder .gt_help_button,.gt_holder .gt_help_button:hover,.gt_holder .gt_help_button .gt_help_tips,.gt_holder .gt_ajax_tip,.gt_holder .gt_ajax_tip.success,.gt_holder .gt_ajax_tip.lock,.gt_holder .gt_ajax_tip.ready,.gt_holder .gt_ajax_tip.fail,.gt_holder .gt_ajax_tip.forbidden,.gt_holder .gt_ajax_tip.error,.gt_holder .gt_slider,.gt_holder .gt_slider_knob,.gt_holder .gt_slider_knob.moving,.gt_holder .gt_curtain_knob{background-repeat:no-repeat;background-image:url('../../images/sprite.3.0.20.png');_background-image:url('http://static.geetest.com/static/golden/sprite.3.0.20.gif')}
+body {
+    text-align: center;
+    font-family: "Microsoft Yahei", sans-serif;
+    font-size: 18px;
+}
+
+input {
+    font-family: "Microsoft Yahei", sans-serif;
+}
+
+.inp {
+    border: 1px solid #000;
+    padding: 0 10px;
+    width: 200px;
+    height: 30px;
+    font-size: 18px;
+}
+
+.btn {
+    border: 1px solid #000;
+    width: 100px;
+    height: 30px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#captcha {
+    width: 290px;
+    margin: 30px auto
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+#notice {
+    color: red;
+}
+
+/*需要覆盖的内容*/
+body{
+    text-align: left;
+    font-size: 14px;
+}
+#captcha{
+    margin:15px auto 30px auto;
+}
+
+
+.clip{
+    background: #6ebd99;
+    opacity: 0.8;
+    background: #6ebd99;
+    opacity: 0.8;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    position: fixed;
+    z-index: 10;
+}
+.hero{
+    background: #6ebd99 url("../../images/media.jpg") no-repeat top center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+video{
+    display: block;
+    width:auto;
+    height:auto;
+    min-width:100%;
+    overflow: hidden;
+}
+.hero video{
+    position: absolute;
+    z-index: 1;
+    bottom:0;
+}
+
+.msg-alert{
+    width:262px;
+    text-align: center;
+    border:0;
+    background-color: #ffe8c0;
+}
+.tip-link a,.tip-link a:hover,.tip-link a:active,.tip-link a:link{
+    font-size: 12px;
+    color:#6dd986;
+}
+.tip-link a:hover{
+    text-decoration: underline;
+}
+.tip-link a:nth-child(1) {
+    float: right;
+}
+
+
+
+/*forgot-change*/
+.login-forgot,.login-change{
+    margin: 0 auto;
+    width: 366px;
+    z-index: 1000;
+    height: 293px;
+    margin-top: 10%;
+}

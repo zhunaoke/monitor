@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../bower_components/sweetalert/dist/sweetalert.css"/>
+
+    <!--<link rel="stylesheet" href="gulp-files/dist/css/login/login.min.css"/>-->
+
+    <link rel="stylesheet" href="../../dist/css/login/login.css"/>
+</head>
+<body ng-controller="forgotController" style="background-color: rgba(0, 0, 0, 0.42);">
+<!--密码修改-->
+    <div class="login-con login-change">
+        <form ng-submit="change()">
+            <div class="form-group ">
+                <label class="icon-lock">新密码</label>
+                <input type="password" placeholder="请输入新密码" ng-model="user.newPassword"/>
+            </div>
+            <div class="form-group ">
+                <label class="icon-lock">密码确认</label>
+                <input type="password" placeholder="请确认新密码" ng-model="user.confirm"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="login-sure" id="login_sure" value="确定"/>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+<head>
+    <meta charset="UTF-8">
+    <title>忘记密码</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../bower_components/sweetalert/dist/sweetalert.css"/>
+
+    <!--<link rel="stylesheet" href="gulp-files/dist/css/login/login.min.css"/>-->
+
+    <link rel="stylesheet" href="../../dist/css/login/login.css"/>
+</head>
+<body ng-controller="forgotController" style="background-color: rgba(0, 0, 0, 0.42);">
+<!--忘记密码-->
+<div class="login-con login-forgot">
+    <form ng-submit="forgot()">
+        <div class="form-group ">
+            <label class="icon-user">账户名</label>
+            <input type="text" placeholder="请输入员工编号" ng-model="user.loginName"/>
+        </div>
+        <div class="form-group ">
+            <label class="icon-lock icon-email">邮箱</label>
+            <input type="email" placeholder="请输入长虹邮箱" ng-model="user.email"/>
+        </div>
+        <div class="form-group">
+            <input type="button" class="login-next" id="login_next" value="下一步"/>
+        </div>
+        </form>
+</div>
+</body>

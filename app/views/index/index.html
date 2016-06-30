@@ -1,0 +1,232 @@
+<!--<link rel="stylesheet" href="gulp-files/dist/css/product/include.min.css">-->
+<!--<link rel="stylesheet" href="gulp-files/dist/css/content/index.min.css">-->
+<link rel="stylesheet" href="dist/css/content/index.css">
+<div id="st-container">
+
+
+    <div id="st-trigger-effects" class="trigger-con">
+
+        <!--中间主体-->
+        <div class="con border-index index-con">
+            <!--<h3 class="con-tit color-index">概览</h3>-->
+            <div class="monitor-content">
+                <div class="row overview" >
+                    <div class="chart-box">
+                        <h3 class="con-tit color-chart" ng-cloak="">监控项概述</h3>
+                        <div class="items-overview" id="items" style="width: 468px;height:285px;"></div>
+                    </div>
+                    <div class="chart-box">
+                        <h3 class="con-tit color-chart" ng-cloak="">网站响应时间统计</h3>
+                        <div class="response-overview" id="response" style="width: 468px;height:285px;"></div>
+                    </div>
+                    <div class="chart-box chart-right">
+                        <h3 class="con-tit color-chart chart-right" ng-cloak="">资源概述</h3>
+                        <div class="resource-overview" id="resource">
+                            <h4 class="resource-title">可选监测点数量：<span class="red"> 4</span></h4>
+                            <div class="form-group">
+                                <h4 class="progress-title">HTTP监控</h4>
+                                <div class="progress col-sm-5">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 40%;">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <span class="red">4</span><span>/</span><span>10</span>
+                                </div>
+                                <div class="col-sm-4 pull-right">
+                                    <a ui-sref="monitor.template"><span class="glyphicon glyphicon-plus-sign"></span> HTTP</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="progress-title">用户中心监控</h4>
+                                <div class="progress col-sm-5">
+                                    <div class="progress-bar progress-bar-success" role="progressbar"
+                                         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 30%;">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <span class="red">3</span><span>/</span><span>10</span>
+                                </div>
+                                <div class="col-sm-4 pull-right">
+                                    <a ui-sref="monitor.template"><span class="glyphicon glyphicon-plus-sign"></span>用户中心</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="progress-title">支付系统监控</h4>
+                                <div class="progress col-sm-5">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 70%;">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <span class="red">7</span><span>/</span><span>10</span>
+                                </div>
+                                <div class="col-sm-4 pull-right">
+                                    <a ui-sref="monitor.template"><span class="glyphicon glyphicon-plus-sign"></span>支付系统</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="progress-title">开放平台监控</h4>
+                                <div class="progress col-sm-5">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 60%;">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <span class="red">6</span><span>/</span><span>10</span>
+                                </div>
+                                <div class="col-sm-4 pull-right">
+                                    <a ui-sref="monitor.template"><span class="glyphicon glyphicon-plus-sign"></span>开放平台</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4 class="progress-title">短信</h4>
+                                <div class="progress col-sm-5">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="1000"
+                                         style="width: 6%;">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <span class="red">60</span><span>/</span><span>1000</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--意见反馈-->
+        <app-help-form></app-help-form>
+    </div>
+</div>
+
+
+<script src="gulp-files/dist/js/util/echarts.min.js"></script>
+<script>
+    var myChart = echarts.init(document.getElementById('items'));
+    // 基于准备好的dom，初始化echarts
+    var option = {
+        backgroundColor: 'rgba(255,255,255,1)',
+        borderWidth:'',
+        title: {
+            text : '实时监测，有3个网站监控异常，有0个服务器监控异常',
+//            subtext: '实时监测，有3个网站监控异常，有0个服务器监控异常',
+            x : 'center',
+            y : '10',
+            textStyle : {
+                fontSize : 14,
+                fontFamily : "microsoft yahei",
+                fontWeight:100
+            }
+        },
+        tooltip: {},
+        legend: {
+            orient:'horizontal',
+            data:['正常','异常'],
+            x: '300',
+            y: '250'
+
+//            backgroundColor:'rgba(230,252,239,1)'
+//            display:parseFloat(100)
+        },
+        xAxis: {
+            type : 'category',
+            splitLine: {show:true},//网格为细线
+//            show: false,//不显示x轴 轴线
+            data: ["HTTP","用户中心","支付系统","开放平台"]
+//            textStyle : {
+//                color:"#0088cc"
+//            }
+//
+        },
+        yAxis: [{
+            // 坐标轴两端空白策略，数组内数值代表百分比
+            type : 'value',
+            splitNumber:4
+        }
+        ],
+        series: [
+            {
+            name: '正常',
+            type: 'bar',
+            data: [1, 2, 3, 1],
+            barWidth : 20,//设置柱条宽度
+            itemStyle:{                            //设置柱条颜色
+                normal:{
+                    label : {show: true, position: 'outside'},//position指数值的位置
+                    color:'rgba(160,211,110,1)'
+                }
+            }
+        },
+            {
+                name: '异常',
+                type: 'bar',
+                data: [2, 1, 0, 2],
+                barWidth : 20,//设置柱条宽度
+                itemStyle:{                            //设置柱条颜色
+                    normal:{
+                        label : {show: true, position: 'outside'},
+                        color:'rgba(251,110,82,1)'
+                    }
+                }
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+
+
+</script>
+<script>
+    var myChart = echarts.init(document.getElementById('response'));
+    // 基于准备好的dom，初始化echarts
+    console.log(myChart);
+    var option = {
+        backgroundColor: 'rgba(255,255,255,1)',
+        title: {
+            text : '行业基准：577.8ms，您监控的网站中有50%超过基准值',
+            x : 'center',
+            y : '10',
+            textStyle : {
+                fontSize : 14,
+                fontFamily : "microsoft yahei",
+                fontWeight:100
+            }
+        },
+        tooltip: {},
+        legend: {
+            data:['监控项'],
+            x: 'right',
+            y: 'top'
+//            backgroundColor:'rgba(230,252,239,1)',
+        },
+        xAxis: {
+            data: ["100","200","300","400","500","600"]
+        },
+        yAxis: {},
+        series: [{
+            name: '监控项',
+            type: 'bar',
+            data: [120, 230, 503,183,435,288],
+            barWidth : 30,//设置柱条宽度
+            itemStyle:{                            //设置柱条颜色
+                normal:{
+                    label : {show: true, position: 'outside'},
+                    color:'rgba(251,110,82,1)'
+                }
+
+            }
+        }]
+    };
+
+    myChart.setOption(option);
+
+</script>
+<script src="gulp-files/dist/js/util/sidebar.min.js"></script>
+<script src="gulp-files/dist/js/sidebar-transition/classie.min.js"></script>
+<script src="gulp-files/dist/js/sidebar-transition/sidebarEffects.min.js"></script>
+
+
+

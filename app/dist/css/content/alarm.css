@@ -1,0 +1,61 @@
+/*ʱ��ؼ���ʽ��������include.css*/
+
+.col-md-12.datepicker{
+    margin: 5px 0;
+    height: 35px;
+}
+@media (min-width: 768px){
+    .col-sm-3 {
+        width:220px;
+    }
+}
+.col-md-12.datepicker table{
+    border:none;
+    border-collapse:collapse;
+
+}
+/*.sub-con .col-md-12.datepicker table>thead>tr>th,.sub-con table>tbody>tr>td{*/
+    /*background-color: #fff;*/
+    /*border: none;*/
+/*}*/
+.sub-con .col-md-12.datepicker table>thead>tr>th{
+    height:30px;
+    line-height:30px;
+}
+.sub-con .col-md-12.datepicker table>tbody>tr>td{
+    line-height: 20px;
+}
+
+.col-md-12.datepicker .input-group[class*=col-]{
+    float: left;
+}
+.col-md-12.datepicker .form-group .input-group.date input{
+    display: inline-block;
+    float: left;
+    width: 220px;
+    border-radius: 4px;
+    text-align: center;
+}
+span.to{
+    display: inline;
+    float: left;
+    line-height: 34px;
+    width: 30px;
+    text-align: center;
+}
+
+.check{
+    height: 35px;
+    line-height: 35px;
+    display: inline-block;
+    float: left;
+    margin: -15px 30px;
+}
+.check a{
+    width: 100px;
+    margin: 0;
+    padding:6px 10px;
+    color: #3ea9f5;
+    border: 1px solid #3ea9f5;
+    border-radius: 2px;
+}/*}*/

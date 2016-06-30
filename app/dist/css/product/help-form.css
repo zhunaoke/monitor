@@ -1,0 +1,60 @@
+/*联系我们*/
+.contact{
+    width:900px;
+    margin: 0 auto;
+    padding:168px 0 33px 0;
+}
+h2.contact-tit{
+    font: 30px microsoft yahei;
+    color:#ffc263;
+    text-align: center;
+    padding-bottom: 40px;
+}
+form{
+    width:800px;
+    margin: 0 auto;
+}
+.contact .form-horizontal .form-group{
+    padding: 0;
+    margin: 0;
+}
+.contact-left{
+    width: 48%;
+}
+.contact-right{
+    width: 48%;
+    margin-left: 4%;
+}
+.contact-us{
+    margin: 0 auto;
+
+}
+.contact-us input{
+    height: 50px;
+    border: 1px solid #c9c7c7;
+}
+.contact-us input{
+
+}
+.suggest{
+    width: 800px;
+    margin-top: 20px;
+    border: 1px solid #c9c7c7;
+}
+.center-block{
+    text-align: center;
+}
+.submit,.submit:hover,.submit:link,.submit:active{
+    width:280px;
+    background-color: #ffc263;
+    height: 50px;
+    border:0;
+    font: 24px microsoft yahei;
+    margin:40px 0;
+    color:#fff;
+    border-radius: 3px;
+}
+.submit:hover{
+    background: #fdbd58;
+    color:#fff;
+}

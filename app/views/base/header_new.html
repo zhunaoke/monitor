@@ -1,0 +1,73 @@
+<!--<link rel="stylesheet" href="dist/css/product/header.css">-->
+<link rel="stylesheet" href="gulp-files/dist/css/product/header.min.css">
+
+
+<header>
+    <div class="nav-logo">
+        <!--<img src="dist/images/logo.png" alt=""/>-->
+        <span class="nav-logo-img" id="nav-logo-img"></span>
+
+    </div>
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li class="active"><a ui-sref="/" class="menu-c1">概览</a></li>
+            <li ><a ui-sref="monitor.http" class="menu-c1">监控</a></li>
+            <li><a ui-sref="alarm.web" class="menu-c1">告警</a></li>
+            <li><a ui-sref="history" class="menu-c1">历史</a></li>
+            <li><a ui-sref="set.alarm" class="menu-c1">设置</a></li>
+            <li><a ui-sref="help.whole" class="menu-c1">帮助</a></li>
+        </ul>
+    </nav>
+    <div class="navbar-user">
+        <ul>
+            <li class="loginName" ng-cloak="">
+                <span>你好，</span>
+                {{userInfo.loginName}}
+                <span class="line"> | </span>
+            </li>
+            <li class="layout">
+                <a ui-sref="logout" role="button">退出</a>
+            </li>
+        </ul>
+    </div>
+</header>
+<script>
+//    var $navbar=$(".navbar-menu li a");
+//    var $navbar_before= $('.navbar-menu li>a::before');
+//    var menus=$(".navbar-menu").find("li");
+//    menus.bind("click",function(){
+//        var index=$(this).index()+1;
+//        $(this).addClass("active").siblings().removeClass("active");
+//        $navbar.removeAttr("class");
+//        $navbar_before.removeAttr("class");
+//        switch (index){
+//            case 1:
+//                $navbar.addClass("menu-c1");
+//                $navbar_before.addClass("menu-c1_before");
+//                break;
+//            case 2:
+//                $navbar.addClass("menu-c2");
+//                $navbar_before.addClass("menu-c2_before");
+//                break;
+//            case 3:
+//                $navbar.addClass("menu-c3");
+//                $navbar_before.addClass("menu-c3_before");
+//                break;
+//            case 4:
+//                $navbar.removeAttr("class").addClass("menu-c4");
+//                $navbar_before.addClass("menu-c4_before");
+//                break;
+//            case 5:
+//                $navbar.addClass("menu-c5");
+//                $navbar_before.addClass("menu-c5_before");
+//                break;
+//            case 6:
+//                $navbar.addClass("menu-c6");
+//                $navbar_before.addClass("menu-c6_before");
+//                break;
+//            default:
+//                $navbar.addClass("menu-c1");
+//                $navbar_before.addClass("menu-c1_before");
+//        }
+//    });
+</script>

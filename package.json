@@ -1,0 +1,48 @@
+{
+  "name": "monitor_new",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "http-server": "*"
+  },
+  "devDependencies": {
+    "bower": "*",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-jshint": "^1.12.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.4.2",
+    "gulp-watch": "^4.3.5",
+    "jasmine-ajax": "^3.2.0",
+    "jasmine-core": "^2.4.1",
+    "jasmine-jquery": "^2.1.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-commonjs": "0.0.13",
+    "karma-coverage": "^0.5.5",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-growl-reporter": "^0.1.1",
+    "karma-jasmine": "^0.3.7",
+    "karma-junit-reporter": "^0.3.8",
+    "karma-mocha": "^0.2.2",
+    "karma-ng-html2js-preprocessor": "^0.2.1",
+    "mocha": "^2.4.5"
+  },
+  "scripts": {
+    "postinstall": "bower install --allow-root && gulp",
+    "prestart": "cnpm install",
+    "start": "http-server -a localhost -p 8000 -d false  -c-1",
+    "pretest": "cnpm install",
+    "test": "karma start karma.conf.js",
+    "test-single-run": "karma start karma.conf.js  --single-run"
+  }
+}

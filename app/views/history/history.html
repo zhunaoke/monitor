@@ -1,0 +1,133 @@
+
+<!--<link rel="stylesheet" href="gulp-files/dist/css/product/include.min.css">-->
+<!--<link rel="stylesheet" href="gulp-files/dist/css/content/history.min.css">-->
+<div id="st-container">
+    <!-- content push wrapper -->
+    <div class="st-pusher">
+        <div id="st-trigger-effects" class="trigger-con">
+            <!--<button class="menu-icon menu-show-icon color-history" data-effect="st-effect-3"></button>-->
+            <!--<div class=" menu-icon menu-close-icon color-history" data-effect="st-effect-3" style="display: none;"></div>-->
+            <!--中间主体-->
+            <div class="con border-history">
+                <h3 class="con-tit color-history">HTTP监控</h3>
+
+                <div class="monitor-content">
+                    <div class="row">
+                        <div class="col-md-6 pull-left">
+                            <button ui-sref="monitor.item" type="button" class="btn-add color-history">创建监控项</button>
+                            <button ui-sref="monitor.template" type="button" class="btn-add color-history">创建监控模板</button>
+                        </div>
+                        <div class="col-md-3 pull-right">
+                            <div class="input-group">
+                                <input type="text" class="form-control input-search border-history" placeholder="监控项名称或url">
+                                <span class="input-group-btn">
+                                        <button class="btn-search color-history" type="button">
+                                            搜索
+                                        </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" id="main" style="width: 500px;height: 400px" >
+
+                    </div>
+
+                    <!--<section ui-view="">-->
+
+                    <!--</section>-->
+                </div>
+            </div>
+            <!--意见反馈-->
+            <app-help-form></app-help-form>
+        </div>
+    </div><!-- /st-pusher -->
+</div><!-- /st-container -->
+
+<script src="js/echarts.js"></script>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    // 基于准备好的dom，初始化echarts
+    //        console.log(myChart);
+    var option = {
+        title : {
+            text: '未来一周气温变化',
+            subtext: '纯属虚构'
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['最高气温','最低气温']
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                dataZoom: {},
+                dataView: {readOnly: false},
+                magicType: {type: ['line', 'bar']},
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : ['周一','周二','周三','周四','周五','周六','周日']
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                axisLabel : {
+                    formatter: '{value} °C'
+                }
+            }
+        ],
+        series : [
+            {
+                name:'最高气温',
+                type:'line',
+                data:[11, 11, 15, 13, 12, 13, 10],
+                markPoint : {
+                    data : [
+                        {type : 'max', name: '最大值'},
+                        {type : 'min', name: '最小值'}
+                    ]
+                },
+                markLine : {
+                    data : [
+                        {type : 'average', name: '平均值'}
+                    ]
+                }
+            },
+            {
+                name:'最低气温',
+                type:'line',
+                data:[1, -2, 2, 5, 3, 2, 0],
+                markPoint : {
+                    data : [
+                        {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+                    ]
+                },
+                markLine : {
+                    data : [
+                        {type : 'average', name : '平均值'}
+                    ]
+                }
+            }
+        ]
+
+    };
+    myChart.setOption(option);
+
+</script>
+<!--<script src="/js/sidebar.js"></script>-->
+<!--<script src="/libs/sidebar-transition/js/classie.js"></script>-->
+<!--<script src="/libs/sidebar-transition/js/sidebarEffects.js"></script>-->
+
+<script src="gulp-files/dist/js/util/sidebar.min.js"></script>
+<script src="gulp-files/dist/js/sidebar-transition/classie.min.js"></script>
+<script src="gulp-files/dist/js/sidebar-transition/sidebarEffects.min.js"></script>
+
+

@@ -1,0 +1,127 @@
+<div class="row">
+    <div class="item-detail clearfix">
+        <div class="chart-box basic-inf pull-left">
+            <h3 class="con-tit color-chart" ng-cloak="">基本信息</h3>
+            <div class="response-overview">
+                <ul class="info-list">
+                    <li><span class="detail-title">监控对象：</span><span><a>{{mt.monitorDetailInfo.url}}</a></span></li>
+                    <li><span class="detail-title">监控状态：</span><span><a class="abnormal">异常</a></span></li>
+                    <li><span class="detail-title">操&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作：</span><span><a class="edit" ui-sref="monitor.edit">修改配置</a></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="chart-box collect-alarm pull-right">
+            <h3 class="con-tit color-chart" ng-cloak="">采集/告警策略</h3>
+            <div class="response-overview">
+                <ul class="inf-list">
+                    <li>
+                        <span class="detail-title">检测频率：</span>
+                        <span>{{mt.monitorDetailInfo.httpMonitorTemplate.monitorFrequency}}分钟</span>
+                    </li>
+                    <li>
+                        <span class="detail-title">响应阙值：</span>
+                        <span>{{mt.monitorDetailInfo.maxAlarmTime}}ms</span>
+                        <span class="ask" title="提示信息" data-container="body" data-toggle="inf" data-placement="right" data-content="当事件超过此阈值时，将被认定为网站出现异常" data-trigger="hover"></span>
+                    </li>
+                    <!--<li><span class="detail-title">采集模板：</span><span><a>系统默认模板</a></span></li>-->
+                    <li>
+                        <span class="detail-title">采集模板：</span>
+                    <span>
+                        <a>{{mt.monitorDetailInfo.httpMonitorTemplate.name}}</a>
+                    </span>
+                    </li>
+                    <li>
+                        <span class="detail-title">异常条件：</span>
+                        <span>{{mt.monitorDetailInfo.maxNodeAlarm}}个监测点异常，连续出现{{mt.monitorDetailInfo.maxExcptionAlarm}}次</span>
+                        <span class="ask" title="提示信息" data-container="body" data-toggle="inf" data-placement="right" data-content="当有指定个数监测点出现异常时，同时连续出现指定次数，会被认定为网站异常" data-trigger="hover"></span>
+                    </li>
+                    <li>
+                        <span class="detail-title">告&nbsp;&nbsp;警&nbsp;组：</span>
+                    <span>
+                        <a  title="告警组详情" data-container="body" data-toggle="inf" data-placement="right" data-html="true" data-content="姓名：{{person.name}}<br/>邮箱：{{person.email}}<br/>电话：{{person.phone}}" data-trigger="hover">默认告警组</a>
+                    </span>
+                    </li>
+                    <li>
+                        <span class="detail-title">最多警告：</span>
+                        <span>{{mt.monitorDetailInfo.alarmTimeMessage}}次</span>
+                        <span class="ask" title="提示信息" data-container="body" data-toggle="inf" data-placement="right" data-content="发生异常最多告警次数" data-trigger="hover"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chart-box whole-width">
+            <h3 class="con-tit color-chart" ng-cloak="">实时状态</h3>
+            <div class="response-overview">
+                <div class="map-box pull-left web-response">
+                    <div class="tit">网站平均响应时间：未知</div>
+                    <div class="context">
+                        <div id="web-response-map" style="width:300px;height: 300px;margin:10px;" ></div>
+                    </div>
+                </div>
+                <div class="map-box pull-right table-detail">
+                    <div class="tit">监测点详情</div>
+                    <div class="context" ng-show="tableResponseData==null">
+                        <div  class="alert alert-success">
+                            暂无数据
+                        </div>
+                    </div>
+                    <div class="context" ng-show="tableResponseData!=null">
+                        <table class="table node-detail-table">
+                            <thead>
+                            <tr>
+                                <th>监测点</th>
+                                <th>状态</th>
+                                <th>响应码</th>
+                                <th>网站响应时间</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="response in tableResponseData">
+                                <td ng-cloak="">{{response.name}}</td>
+                                <td ng-cloak="" ng-show="response.responseStatus!=200"><span><a class="abnormal">异常</a></span></td>
+                                <td ng-cloak="" ng-show="response.responseStatus==200"><a class="icon-link"><span class="icon icon-right"></span></a></td>
+                                <td ng-cloak="">{{response.responseCode}}</td>
+                                <td ng-cloak="">{{response.linkTime}}ms</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="chart-box whole-width">
+            <h3 class="con-tit color-chart" ng-cloak="">概览统计</h3>
+            <div class="response-overview">
+                <div class="map-box pull-left">
+                    <div class="tit">24小时可用率汇总</div>
+                    <div class="context">
+                        <div id="pie-count" style="width:250px;height:220px;margin:10px;"></div>
+                    </div>
+                </div>
+                <div class="map-box pull-right">
+                    <div class="tit">24小时监控项可用率 (单位：%)</div>
+                    <div class="context">
+                        <div id="line-count" style="width:870px;height:200px;margin:10px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="gulp-files/dist/js/util/echarts.min.js"></script>
+<script src="dist/js/util/china.js"></script>
+<script>
+    $("[data-toggle='inf']").hover().popover();
+</script>
+
+<script>
+
+
+
+
+
+</script>

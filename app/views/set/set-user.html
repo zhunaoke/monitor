@@ -1,0 +1,196 @@
+<div class="row set-row">
+    <div class="col-md-4 pull-left">
+        <button ui-sref="monitor.item" type="button" class="btn-add color-set">创建监控项</button>
+        <button ui-sref="set.template-new" type="button" class="btn-add color-set">创建监控模板</button>
+    </div>
+    <div class=" pull-right" style="margin-right:0;">
+        <button  type="button" class="btn-add color-set" onclick="showAddPeopleModal();">创建联系人</button>
+    </div>
+</div>
+
+<div class="sub-con">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="myAlert" class="alert alert-warning">
+                <a class="close" data-dismiss="alert">&times;</a>
+                报警接收人是接收报警的最小单位，当前已创建 <strong>1</strong> 个接收人
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" ng-if="people.peopleList.length!=0">
+            <table  class="table table-hover table-responsive">
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>邮箱</th>
+                    <th>手机</th>
+                    <th>邮箱验证</th>
+                    <th>手机验证</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="person in people.peopleList">
+                    <td>{{person.name}}</td>
+                    <td>{{person.email}}</td>
+                    <td ng-cloak ng-show="person.phone==''">未填写</td>
+                    <td ng-cloak ng-show="person.phone!=''">{{person.phone}}</td>
+                    <td>
+                        <a class="icon-link"><span class="icon icon-right"></span></a>
+                    </td>
+                    <td>
+                        <a class="icon-link" ng-show="person.phone==''"><span class="icon icon-error"></span></a>
+                        <a class="icon-link" ng-show="person.phone!=''"><span class="icon icon-right"></span></a>
+                    </td>
+                    <td class="operation">
+                        <a class="icon-link" name="editor" data-toggle="modal" title="编辑" ng-click="people.editPerson(person)"><span class="icon icon-edit"></span></a>
+                        <a class="icon-link" name="delete" data-toggle="modal" title="删除" ng-click="people.delPerson(person.id)"><span class="icon icon-del"></span></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12" ng-if="people.peopleList.length==0">
+            <div  class="alert alert-success">
+                暂无数据
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center">
+            <uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage"
+                        class="pagination-md" totalPages="totalPages"
+                        ng-change="pageChanged()" max-size="maxSize" rotate="false"
+                        items-per-page="10"
+                        previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+            </uib-pagination>
+        </div>
+    </div>
+</div>
+
+<!--创建联系人-->
+<div class="modal fade people" id="people-add-modal" tabindex="-1" role="dialog" aria-labelledby="peopleAddModalLabel" aria-hidden="true" >
+    <!--<div class="modal-dialog" ng-controller="set.user">-->
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <form role="form" id="addPeopleForm" class="template-form people-form" ng-submit="people.addPeople(peopleAddInfo)">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="peopleAddModalLabel">添加联系人</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-md-3"><span class="red">*</span>姓名：</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" ng-model="peopleAddInfo.name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">邮箱：</label>
+                        <div class="col-md-9">
+                            <input type="email" class="form-control" ng-model="peopleAddInfo.email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3"><span class="red">*</span>手机：</label>
+                        <div class="col-md-9">
+                            <input id="phone" type="tel" class="form-control" ng-model="peopleAddInfo.phone"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">校验码：</label>
+                        <div class="col-md-9">
+                            <input id="phone-code" type="text" style="width:130px" class="form-control" ng-model="peopleAddInfo.authCode" disabled/>
+                            <button id="getCodeBtn" class="btn btn-default code-btn" type="button" ng-click="people.getCode(peopleAddInfo.phone,'phone-code','phone','getCodeBtn','msg_add_person','add_confirm')">获取校验码</button>
+                            <!--<button id="getCodeBtn" class="btn btn-default code-btn" type="button"  ng-click="people.getCode(peopleAddInfo.phone,'phone-code','phone','getCodeBtn','msg_add_person')">获取校验码</button>-->
+                        </div>
+                    </div>
+
+                    <!--<div class="form-group" id="msg" style="display: none;">-->
+                    <div id="msg_add_person" style="display: none;">
+                        <div class="alert alert-warning msg-alert">
+                            您的网络连接有问题。
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <div class="people-footer">
+                        <button type="submit" class="btn btn-default confirm" id="add_confirm">确认</button>
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">放弃</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!--编辑联系人-->
+<div class="modal fade people" id="people-edit-modal" tabindex="-1" role="dialog" aria-labelledby="peopleAddModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <form role="form" class="template-form people-form" ng-submit="people.updatePerson(peopleEditInfo)">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="peopleEditModalLabel">编辑联系人</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-sm-2"><span class="red">*</span>姓名：</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" ng-model="peopleEditInfo.name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2">邮箱：</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" ng-model="peopleEditInfo.email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2"><span class="red">*</span>手机：</label>
+                        <div class="col-sm-10">
+                            <input id="edit-phone" type="tel" class="form-control" ng-model="peopleEditInfo.phone"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2">校验码：</label>
+                        <div class="col-sm-10 ">
+                            <input id="edit-phone-code" type="text" style="width:130px" class="form-control" ng-model="peopleEditInfo.authCode"/>
+                            <!--<button id="getCodeBtnEdit" class="btn btn-default code-btn" type="button" ng-click="people.getCode(peopleEditInfo.phone,'edit-phone-code','edit-phone','getCodeBtnEdit','msg_edit_person','edit_confirm')">获取校验码</button>-->
+                            <button id="getCodeBtnEdit" class="btn btn-default code-btn" type="button" ng-click="people.getCode(peopleEditInfo.phone,'edit-phone-code','edit-phone','getCodeBtnEdit','msg_edit_person','edit_confirm')">获取校验码</button>
+                        </div>
+                    </div>
+                    <div id="msg_edit_person" class="mgsbox" style="display: none;">
+                        <div class="alert alert-warning msg-alert">
+                            您的网络连接有问题。
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="people-footer">
+                        <button type="submit" class="btn btn-default confirm" id="edit_confirm">确认</button>
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">放弃</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $("button.close,button.cancel").bind("click",function(){
+        //$("#"+submitBtnId).parent().parent().parent('form').reset();
+        //$("#"+submitBtnId).parent('form').reset();
+        console.log("点击");
+        document.getElementById('addPeopleForm').reset();
+    });
+</script>
+
+
+

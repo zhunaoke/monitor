@@ -1,0 +1,135 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
+.col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7.col-md-8,.col-md-9.col-md-10,.col-md-11,.col-md-12{
+  margin: 0;
+  padding:0;
+}
+.col-sm-1,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-10,.col-sm-11,.col-sm-12{
+  margin: 0;
+  padding:0;
+}
+html{
+  font:12px  "microsoft yahei";
+  color: #666666;
+  min-width: 1200px;
+  min-height: 100vh;
+}
+body{
+min-height: 85vh;
+}
+/* 默认不显示下划线，保持页面简洁 */
+ins, a,a:link, a：visited ,a:hover,a:active{
+  text-decoration: none;
+}
+/* 去除 ie6 & ie7 焦点点状线 */
+a:focus, *:focus {
+  outline: none;
+}
+ol, ul {
+  list-style: none;
+}
+/*sweetaler*/
+.sweet-alert {
+  width: 350px;
+  margin-left: -175px;
+}
+.sweet-alert button {
+  padding: 10px 40px;
+  margin: 21px 5px 15px 5px;
+}
+a{
+  font:14px  "microsoft yahei";
+}
+footer{
+  width: 100%;
+  height:60px;
+  background-color: #ffffff;
+  color: #666666;
+  border-top:1px solid #eee ;
+}
+section.index-section{
+  min-height: 55vh;
+  background-color: #ededef;
+  /*padding-top: 35px;*/
+}
+footer{
+  top:78vh;
+  background-color: #303030;
+  height: 200px;
+}
+footer p{
+  text-align: center;
+}
+footer p.ch{
+  line-height:24px;
+  padding:28px 0;
+  font: 24px microsoft yahei;
+  color: #ffffff;
+}
+footer .links{
+  height: 45px;
+  margin: 0 auto;
+  /*border-bottom: 2px solid #656565;*/
+}
+ul.link{
+  width: 350px;
+  height: 45px;
+  margin: 0 auto;
+  border-bottom: 1px solid #656565;
+}
+ul.link li{
+  display: inline-block;
+  float: left;
+  width: 70px;
+  height: 32px;
+  text-align: center;
+}
+
+footer a.friend-icon{
+  display:inline-block ;
+  width:32px;
+  height:32px;
+  background: url("../../images/icons.png") no-repeat;
+}
+footer a.friend-icon.qq{
+  background-position: 0 -64px;
+}
+footer a.friend-icon.qq:hover{
+  background-position: 0 -96px;
+}
+
+footer a.friend-icon.xinlang{
+  background-position: -32px -64px;
+}
+footer a.friend-icon.xinlang:hover{
+  background-position: -32px -96px;
+}
+
+footer a.friend-icon.weixin{
+  background-position: -64px -64px;
+}
+footer a.friend-icon.weixin:hover{
+  background-position: -64px -96px;
+}
+
+footer a.friend-icon.renren{
+  background-position: -96px -64px;
+}
+footer a.friend-icon.renren:hover{
+  background-position: -96px -96px;
+}
+
+footer a.friend-icon.txwb{
+  background-position: -128px -64px;
+}
+footer a.friend-icon.txwb:hover{
+  background-position: -128px -96px;
+}
+
+p.copyright{
+  padding-top: 10px;
+  font: 14px microsoft yahei;
+  color: #999999;
+}

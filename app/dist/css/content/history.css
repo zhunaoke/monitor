@@ -1,0 +1,11 @@
+#main{
+    border:1px solid #000000;
+    background-color:#ffffff;
+    -webkit-background-color:#ffffff;
+}
+#main:hover{
+    transform:scale(1.5);
+    -webkit-transform:scale(1.5);
+    -moz-transform:scale(1.5);
+    -o-transform:scale(1.5);
+}
