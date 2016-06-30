@@ -1,0 +1,10 @@
+before_script:
+  - sleep 2 # give server time to start
+stages:
+  - test
+test:
+  script:
+    - node -v
+    - ls -al #list dir
+    - npm install
+    - npm run test-single-run
